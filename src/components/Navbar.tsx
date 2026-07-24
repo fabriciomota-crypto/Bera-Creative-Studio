@@ -1,42 +1,57 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { ThemeToggle } from './ThemeToggle';
+import { LanguageSwitcher } from './LanguageSwitcher';
+import { Logo } from './Logo';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useTranslation();
+
+  const links = [
+    { href: '#servicos', label: t('nav.services') },
+    { href: '#cases', label: t('nav.cases') },
+    { href: '#metodo', label: t('nav.method') },
+    { href: '#faq', label: t('nav.faq') },
+  ];
 
   return (
-    <nav className="fixed w-full z-50 bg-dominant-light/80 dark:bg-dominant-dark/80 backdrop-blur-md border-b border-secondary-light/50 dark:border-secondary-dark/50 transition-colors duration-300">
+    <nav className="fixed w-full z-50 bg-bg/85 backdrop-blur-md border-b border-primary/15 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <a href="#" className="flex items-center gap-2">
-              <span className="text-2xl font-bold tracking-tighter text-content-light dark:text-content-dark">
-                BERA<span className="text-accent-light dark:text-accent-dark">.</span>
-              </span>
+          <Logo />
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-8">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-label uppercase text-textMuted hover:text-primary dark:hover:text-accent transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+            <LanguageSwitcher />
+            <ThemeToggle />
+            <a
+              href="#contato"
+              className="clip-corner-sm px-5 py-2.5 text-label uppercase text-white bg-primary hover:bg-accent hover:text-black transition-all hover:-translate-y-0.5"
+            >
+              {t('nav.cta')}
             </a>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-8">
-              <a href="#servicos" className="text-sm font-medium text-contentMuted-light hover:text-content-light dark:text-contentMuted-dark dark:hover:text-content-dark transition-colors">Serviços</a>
-              <a href="#cases" className="text-sm font-medium text-contentMuted-light hover:text-content-light dark:text-contentMuted-dark dark:hover:text-content-dark transition-colors">Cases</a>
-              <a href="#metodo" className="text-sm font-medium text-contentMuted-light hover:text-content-light dark:text-contentMuted-dark dark:hover:text-content-dark transition-colors">Método</a>
-              <ThemeToggle />
-              <a href="#contato" className="px-5 py-2.5 text-sm font-bold text-dominant-light bg-accent-light hover:bg-opacity-90 dark:text-dominant-dark dark:bg-accent-dark rounded-full transition-all hover:-translate-y-0.5">
-                Contato
-              </a>
-            </div>
-          </div>
-
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-4">
+          <div className="md:hidden flex items-center gap-3">
+            <LanguageSwitcher />
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-content-light dark:text-content-dark p-2"
+              className="text-text p-2"
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -46,13 +61,24 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-dominant-light dark:bg-dominant-dark border-b border-secondary-light dark:border-secondary-dark">
-          <div className="px-4 pt-2 pb-6 space-y-1 sm:px-3 flex flex-col gap-4">
-            <a href="#servicos" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-content-light dark:text-content-dark py-2 border-b border-secondary-light/50 dark:border-secondary-dark/50">Serviços</a>
-            <a href="#cases" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-content-light dark:text-content-dark py-2 border-b border-secondary-light/50 dark:border-secondary-dark/50">Cases</a>
-            <a href="#metodo" onClick={() => setIsOpen(false)} className="block text-lg font-medium text-content-light dark:text-content-dark py-2 border-b border-secondary-light/50 dark:border-secondary-dark/50">Método</a>
-            <a href="#contato" onClick={() => setIsOpen(false)} className="inline-block mt-4 text-center px-5 py-3 text-sm font-bold text-dominant-light bg-accent-light dark:text-dominant-dark dark:bg-accent-dark rounded-full">
-              Falar com especialista
+        <div className="md:hidden bg-bg border-b border-primary/15">
+          <div className="px-4 pt-2 pb-6 flex flex-col gap-1">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="block text-lg font-heading font-medium text-text py-3 border-b border-grey/20"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="#contato"
+              onClick={() => setIsOpen(false)}
+              className="clip-corner-sm mt-4 text-center px-5 py-3 text-label uppercase text-white bg-primary"
+            >
+              {t('nav.cta')}
             </a>
           </div>
         </div>

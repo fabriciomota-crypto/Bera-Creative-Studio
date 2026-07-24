@@ -1,40 +1,62 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import heroContent from '../content/hero.json';
+import { useContent } from '../content/useContent';
+import images from '../design/images.json';
 
 export const Hero: React.FC = () => {
-  return (
-    <section className="relative pt-24 pb-32 lg:pt-36 lg:pb-40 overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-secondary-light/30 dark:bg-secondary-dark/30" />
-      <div className="absolute -top-40 -right-40 w-96 h-96 bg-accent-light/10 dark:bg-accent-dark/10 rounded-full blur-3xl" />
-      <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-accent-light/10 dark:bg-accent-dark/10 rounded-full blur-3xl" />
+  const t = useContent(heroContent);
+  const heroVisual = (images as Record<string, string>).heroVisual;
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left">
-        <div className="lg:w-2/3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-light dark:bg-secondary-dark border border-contentMuted-light/20 dark:border-contentMuted-dark/20 mb-8">
-            <span className="w-2 h-2 rounded-full bg-accent-light dark:bg-accent-dark animate-pulse" />
-            <span className="text-xs font-bold tracking-widest uppercase text-contentMuted-light dark:text-contentMuted-dark">
-              Sistemas Criativos Integrados
-            </span>
+  return (
+    <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-7 animate-fade-up">
+            <div className="inline-flex items-center gap-2 px-3 py-1 border border-primary/30 mb-8">
+              <span className="w-2 h-2 bg-accent" />
+              <span className="text-label uppercase text-textMuted">
+                {t.eyebrow}
+              </span>
+            </div>
+
+            <h1 className="text-h1 font-heading text-text mb-6">
+              {t.titleLine} <br className="hidden sm:block" />
+              <span className="text-primary dark:text-accent">{t.titleHighlight}</span>
+            </h1>
+
+            <p className="text-bodyText text-textMuted mb-10 max-w-[62ch]">
+              {t.subtitle}
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="#contato"
+                className="clip-corner inline-flex items-center justify-center gap-2 px-8 py-4 text-label uppercase text-white bg-primary hover:bg-accent hover:text-black transition-all hover:-translate-y-1"
+              >
+                {t.ctaPrimary}
+                <ArrowRight size={16} />
+              </a>
+              <a
+                href="#cases"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-label uppercase text-text border-2 border-grey/40 hover:border-primary dark:hover:border-accent transition-colors"
+              >
+                {t.ctaSecondary}
+              </a>
+            </div>
           </div>
-          
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-content-light dark:text-content-dark mb-6 leading-[1.1]">
-            Marcas fortes para <br className="hidden sm:block" />
-            <span className="text-accent-light dark:text-accent-dark">setores complexos.</span>
-          </h1>
-          
-          <p className="text-lg sm:text-xl text-contentMuted-light dark:text-contentMuted-dark mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-            Elevamos marcas ao próximo nível. Unimos estratégia, audiovisual, branding e performance numa execução contínua e evolutiva para que você domine a percepção do seu mercado.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a href="#contato" className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold text-dominant-light bg-content-light dark:bg-content-dark dark:text-dominant-dark rounded-full hover:bg-accent-light dark:hover:bg-accent-dark transition-all hover:-translate-y-1">
-              Iniciar Projeto
-              <ArrowRight size={16} />
-            </a>
-            <a href="#cases" className="inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-bold text-content-light dark:text-content-dark bg-transparent border-2 border-secondary-light dark:border-secondary-dark rounded-full hover:border-content-light dark:hover:border-content-dark transition-colors">
-              Ver Cases
-            </a>
+
+          {/* Flat layered geometric panel composition — replaces blurred gradient blobs. Echoes the bear mark's angularity abstractly. Swaps for a real photo once uploaded via the dev design panel (Step 5). */}
+          <div className="lg:col-span-5 relative h-72 sm:h-96 lg:h-[28rem] hidden sm:block" aria-hidden="true">
+            {heroVisual ? (
+              <img src={heroVisual} alt="" className="w-full h-full object-cover clip-corner" />
+            ) : (
+              <>
+                <div className="absolute inset-0 bg-primary clip-corner" />
+                <div className="absolute top-6 -right-4 w-2/3 h-1/2 bg-accent clip-corner-sm" />
+                <div className="absolute bottom-8 left-4 w-1/2 h-1/3 bg-surface border border-grey/30" />
+              </>
+            )}
           </div>
         </div>
       </div>

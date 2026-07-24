@@ -1,0 +1,58 @@
+{
+  "pt": {
+    "eyebrow": "Sistemas Integrados",
+    "titlePrefix": "O que a Bera ",
+    "titleHighlight": "entrega.",
+    "subtitle": "Soluções criativas integradas, do conceito à execução — cada projeto construído para durar e performar.",
+    "items": [
+      {
+        "icon": "palette",
+        "title": "Identidade Visual",
+        "description": "Sistemas visuais completos construídos para serem inconfundíveis: marca, logo, cores, tipografia e aplicações."
+      },
+      {
+        "icon": "video",
+        "title": "Audiovisual & Motion",
+        "description": "Produção de vídeos, animações e campanhas que engajam e transmitem a essência do seu negócio."
+      },
+      {
+        "icon": "layout",
+        "title": "Digital & Web",
+        "description": "Sites, landing pages e e-commerces com foco em performance, CRO e Core Web Vitals."
+      },
+      {
+        "icon": "chart",
+        "title": "Performance & Tráfego",
+        "description": "Gestão de mídia paga, funil de vendas e otimização contínua baseada em dados para maximizar seu ROAS."
+      }
+    ]
+  },
+  "en": {
+    "eyebrow": "Integrated Systems",
+    "titlePrefix": "What Bera ",
+    "titleHighlight": "delivers.",
+    "subtitle": "Integrated creative solutions, from concept to execution — every project built to last and to perform.",
+    "items": [
+      {
+        "icon": "palette",
+        "title": "Brand Identity",
+        "description": "Complete visual systems built to be unmistakable: brand, logo, color, typography, and applications."
+      },
+      {
+        "icon": "video",
+        "title": "Video & Motion",
+        "description": "Video production, animation, and campaigns that engage and carry the essence of your business."
+      },
+      {
+        "icon": "layout",
+        "title": "Digital & Web",
+        "description": "Sites, landing pages, and e-commerce built for performance, CRO, and Core Web Vitals."
+      },
+      {
+        "icon": "chart",
+        "title": "Performance & Media",
+        "description": "Paid media management, sales funnels, and continuous data-driven optimization to maximize your ROAS."
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "nav": {
+    "services": "Serviços",
+    "cases": "Cases",
+    "method": "Método",
+    "faq": "FAQ",
+    "contact": "Contato",
+    "cta": "Falar com especialista"
+  },
+  "theme": {
+    "toggle": "Alternar tema"
+  },
+  "lang": {
+    "toggle": "Trocar idioma",
+    "pt": "PT-BR",
+    "en": "EN-US"
+  },
+  "contactForm": {
+    "name": "Nome",
+    "namePlaceholder": "João Silva",
+    "company": "Empresa",
+    "companyPlaceholder": "Minha Empresa",
+    "email": "E-mail Corporativo",
+    "emailPlaceholder": "joao@empresa.com",
+    "phone": "WhatsApp",
+    "phonePlaceholder": "(11) 99999-9999",
+    "interest": "Desafio Principal",
+    "interestOptions": {
+      "identity": "Identidade Visual",
+      "performance": "Performance e Tráfego",
+      "web": "Web Design / E-commerce",
+      "audiovisual": "Audiovisual e Motion",
+      "full": "Sistema Criativo Completo"
+    },
+    "submit": "Solicitar Diagnóstico Gratuito"
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados."
+  }
+}

@@ -1,4 +1,11 @@
 /** @type {import('tailwindcss').Config} */
+function withOpacity(variable) {
+  return ({ opacityValue }) =>
+    opacityValue === undefined
+      ? `rgb(var(${variable}))`
+      : `rgb(var(${variable}) / ${opacityValue})`;
+}
+
 export default {
   content: [
     "./index.html",
@@ -8,35 +15,32 @@ export default {
   theme: {
     extend: {
       colors: {
-        // 60-30-10 Rule configuration
-        // Dominant (60%)
-        dominant: {
-          light: '#f9fafb', // Gray 50 (White-ish)
-          dark: '#080810',  // Bera Black
-        },
-        // Secondary (30%)
-        secondary: {
-          light: '#f3f4f6', // Gray 100
-          dark: '#111120',  // Bera Surface 2
-        },
-        // Accent (10%)
-        accent: {
-          light: '#309c58', // Slightly darker teal for light mode contrast
-          dark: '#47B86D',  // Bera Teal
-        },
-        // Text colors
-        content: {
-          light: '#111827', // Gray 900
-          dark: '#f0ede6',  // Bera Cream
-        },
-        contentMuted: {
-          light: '#6b7280', // Gray 500
-          dark: 'rgba(240,237,230,0.55)', // Bera Fg2
-        }
+        // Brand — Solid Blue (60% usage), Electric Mint (25%), Grey (part of 15% neutral)
+        primary: withOpacity('--color-primary'),
+        primaryDeep: withOpacity('--color-primary-deep'),
+        accent: withOpacity('--color-accent'),
+        grey: withOpacity('--color-grey'),
+        // Theme-dependent surfaces
+        bg: withOpacity('--color-bg'),
+        surface: withOpacity('--color-surface'),
+        text: withOpacity('--color-text'),
+        textMuted: withOpacity('--color-text-muted'),
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-      }
+        heading: 'var(--font-heading)',
+        body: 'var(--font-body)',
+      },
+      fontSize: {
+        h1: ['var(--text-h1-size)', { lineHeight: 'var(--text-h1-leading)', fontWeight: 'var(--text-h1-weight)' }],
+        h2: ['var(--text-h2-size)', { lineHeight: 'var(--text-h2-leading)', fontWeight: 'var(--text-h2-weight)' }],
+        h3: ['var(--text-h3-size)', { lineHeight: 'var(--text-h3-leading)', fontWeight: 'var(--text-h3-weight)' }],
+        bodyText: ['var(--text-body-size)', { lineHeight: 'var(--text-body-leading)', fontWeight: 'var(--text-body-weight)' }],
+        label: ['var(--text-label-size)', { letterSpacing: 'var(--text-label-tracking)', fontWeight: 'var(--text-label-weight)' }],
+      },
+      spacing: {
+        section: 'var(--space-section)',
+        card: 'var(--space-card)',
+      },
     },
   },
   plugins: [],

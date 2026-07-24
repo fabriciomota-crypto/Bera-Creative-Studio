@@ -1,90 +1,107 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import contactContent from '../content/contact.json';
+import { useContent } from '../content/useContent';
 
 export const Contact: React.FC = () => {
+  const t = useContent(contactContent);
+  const { t: tChrome } = useTranslation();
+  const form = tChrome('contactForm', { returnObjects: true }) as {
+    name: string; namePlaceholder: string; company: string; companyPlaceholder: string;
+    email: string; emailPlaceholder: string; phone: string; phonePlaceholder: string;
+    interest: string;
+    interestOptions: { identity: string; performance: string; web: string; audiovisual: string; full: string };
+    submit: string;
+  };
+
+  const fieldClasses =
+    'w-full bg-transparent border-b border-grey/40 py-3 px-1 text-text placeholder:text-textMuted/40 focus:outline-none focus:border-primary dark:focus:border-accent transition-colors';
+
   return (
-    <footer id="contato" className="bg-secondary-light/20 dark:bg-secondary-dark/20 pt-24 pb-12 border-t border-secondary-light/50 dark:border-secondary-dark/50">
+    <footer id="contato" className="bg-surface/40 pt-section pb-12 border-t border-grey/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 mb-24">
-          
           <div>
-            <span className="text-xs font-bold tracking-widest uppercase text-accent-light dark:text-accent-dark mb-4 display-block">
-              Vamos conversar?
+            <span className="block text-label uppercase text-accent mb-4">
+              {t.eyebrow}
             </span>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-content-light dark:text-content-dark mb-6 tracking-tight">
-              A sua marca precisa <br /> dominar a <span className="text-accent-light dark:text-accent-dark">percepção.</span>
+            <h2 className="text-h2 font-heading text-text mb-6">
+              {t.titleLine} <br /> <span className="text-primary dark:text-accent">{t.titleHighlight}</span>
             </h2>
-            <p className="text-lg text-contentMuted-light dark:text-contentMuted-dark mb-8 max-w-md leading-relaxed">
-              Deixe seus dados e nosso time de especialistas entrará em contato para agendar um diagnóstico de performance e posicionamento.
+            <p className="text-bodyText text-textMuted mb-8 max-w-[58ch]">
+              {t.subtitle}
             </p>
-            
+
             <div className="space-y-4">
               <div>
-                <p className="text-xs font-bold tracking-widest uppercase text-contentMuted-light/50 dark:text-contentMuted-dark/50 mb-1">E-mail</p>
-                <a href="mailto:hello@bera.digital" className="text-xl font-bold text-content-light dark:text-content-dark hover:text-accent-light dark:hover:text-accent-dark transition-colors">
-                  hello@bera.digital
+                <p className="text-label uppercase text-textMuted/60 mb-1">{t.emailLabel}</p>
+                <a
+                  href={`mailto:${t.email}`}
+                  className="text-xl font-heading font-bold text-text hover:text-primary dark:hover:text-accent transition-colors"
+                >
+                  {t.email}
                 </a>
               </div>
-              <div className="flex items-center gap-2 text-sm text-contentMuted-light dark:text-contentMuted-dark pt-4">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-light dark:bg-accent-dark opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-light dark:bg-accent-dark"></span>
-                </span>
-                Atendimento ativo (Seg-Sex, 9h-18h)
+              <div className="flex items-center gap-2 text-sm text-textMuted pt-4">
+                <span className="w-2 h-2 rounded-full bg-accent" />
+                {t.availability}
               </div>
             </div>
           </div>
 
-          <div className="bg-dominant-light dark:bg-dominant-dark p-8 sm:p-10 rounded-3xl border border-secondary-light dark:border-secondary-dark shadow-2xl">
+          <div className="bg-bg p-8 sm:p-10 border border-grey/25">
             <form className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-xs font-medium text-contentMuted-light dark:text-contentMuted-dark uppercase tracking-wider">Nome</label>
-                  <input type="text" id="name" className="w-full bg-transparent border-b border-secondary-light dark:border-secondary-dark py-3 px-0 text-content-light dark:text-content-dark placeholder:text-contentMuted-light/30 dark:placeholder:text-contentMuted-dark/30 focus:outline-none focus:border-accent-light dark:focus:border-accent-dark transition-colors" placeholder="João Silva" />
+                  <label htmlFor="name" className="text-label uppercase text-textMuted">{form.name}</label>
+                  <input type="text" id="name" className={fieldClasses} placeholder={form.namePlaceholder} />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="company" className="text-xs font-medium text-contentMuted-light dark:text-contentMuted-dark uppercase tracking-wider">Empresa</label>
-                  <input type="text" id="company" className="w-full bg-transparent border-b border-secondary-light dark:border-secondary-dark py-3 px-0 text-content-light dark:text-content-dark placeholder:text-contentMuted-light/30 dark:placeholder:text-contentMuted-dark/30 focus:outline-none focus:border-accent-light dark:focus:border-accent-dark transition-colors" placeholder="Minha Empresa" />
+                  <label htmlFor="company" className="text-label uppercase text-textMuted">{form.company}</label>
+                  <input type="text" id="company" className={fieldClasses} placeholder={form.companyPlaceholder} />
                 </div>
               </div>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="email" className="text-xs font-medium text-contentMuted-light dark:text-contentMuted-dark uppercase tracking-wider">E-mail Corporativo</label>
-                  <input type="email" id="email" className="w-full bg-transparent border-b border-secondary-light dark:border-secondary-dark py-3 px-0 text-content-light dark:text-content-dark placeholder:text-contentMuted-light/30 dark:placeholder:text-contentMuted-dark/30 focus:outline-none focus:border-accent-light dark:focus:border-accent-dark transition-colors" placeholder="joao@empresa.com" />
+                  <label htmlFor="email" className="text-label uppercase text-textMuted">{form.email}</label>
+                  <input type="email" id="email" className={fieldClasses} placeholder={form.emailPlaceholder} />
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="phone" className="text-xs font-medium text-contentMuted-light dark:text-contentMuted-dark uppercase tracking-wider">WhatsApp</label>
-                  <input type="tel" id="phone" className="w-full bg-transparent border-b border-secondary-light dark:border-secondary-dark py-3 px-0 text-content-light dark:text-content-dark placeholder:text-contentMuted-light/30 dark:placeholder:text-contentMuted-dark/30 focus:outline-none focus:border-accent-light dark:focus:border-accent-dark transition-colors" placeholder="(11) 99999-9999" />
+                  <label htmlFor="phone" className="text-label uppercase text-textMuted">{form.phone}</label>
+                  <input type="tel" id="phone" className={fieldClasses} placeholder={form.phonePlaceholder} />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label htmlFor="interest" className="text-xs font-medium text-contentMuted-light dark:text-contentMuted-dark uppercase tracking-wider">Desafio Principal</label>
-                <select id="interest" className="w-full bg-transparent border-b border-secondary-light dark:border-secondary-dark py-3 px-0 text-content-light dark:text-content-dark focus:outline-none focus:border-accent-light dark:focus:border-accent-dark transition-colors appearance-none">
-                  <option value="identidade" className="bg-dominant-light dark:bg-dominant-dark text-content-light dark:text-content-dark">Identidade Visual</option>
-                  <option value="performance" className="bg-dominant-light dark:bg-dominant-dark text-content-light dark:text-content-dark">Performance e Tráfego</option>
-                  <option value="web" className="bg-dominant-light dark:bg-dominant-dark text-content-light dark:text-content-dark">Web Design / E-commerce</option>
-                  <option value="audiovisual" className="bg-dominant-light dark:bg-dominant-dark text-content-light dark:text-content-dark">Audiovisual e Motion</option>
-                  <option value="completo" className="bg-dominant-light dark:bg-dominant-dark text-content-light dark:text-content-dark">Sistema Criativo Completo</option>
+                <label htmlFor="interest" className="text-label uppercase text-textMuted">{form.interest}</label>
+                <select id="interest" className={`${fieldClasses} appearance-none`}>
+                  <option value="identidade" className="bg-bg text-text">{form.interestOptions.identity}</option>
+                  <option value="performance" className="bg-bg text-text">{form.interestOptions.performance}</option>
+                  <option value="web" className="bg-bg text-text">{form.interestOptions.web}</option>
+                  <option value="audiovisual" className="bg-bg text-text">{form.interestOptions.audiovisual}</option>
+                  <option value="completo" className="bg-bg text-text">{form.interestOptions.full}</option>
                 </select>
               </div>
 
-              <button type="button" className="w-full py-4 mt-4 bg-accent-light dark:bg-accent-dark text-dominant-light dark:text-dominant-dark font-bold rounded-full hover:opacity-90 transition-opacity hover:-translate-y-0.5 transform">
-                Solicitar Diagnóstico Gratuito
+              <button
+                type="button"
+                className="clip-corner w-full py-4 mt-4 bg-primary hover:bg-accent hover:text-black text-white text-label uppercase transition-all hover:-translate-y-0.5"
+              >
+                {form.submit}
               </button>
             </form>
           </div>
         </div>
 
-        {/* Bottom Footer */}
-        <div className="pt-8 border-t border-secondary-light/50 dark:border-secondary-dark/50 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-sm text-contentMuted-light dark:text-contentMuted-dark">
-            © {new Date().getFullYear()} Bera Creative Studio. Todos os direitos reservados.
+        <div className="pt-8 border-t border-grey/20 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="text-sm text-textMuted">
+            © {new Date().getFullYear()} Bera Creative Studio. {tChrome('footer.rights')}
           </div>
-          <div className="flex items-center gap-6 text-sm text-contentMuted-light dark:text-contentMuted-dark">
-            <a href="#" className="hover:text-content-light dark:hover:text-content-dark transition-colors">Instagram</a>
-            <a href="#" className="hover:text-content-light dark:hover:text-content-dark transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-content-light dark:hover:text-content-dark transition-colors">Behance</a>
+          <div className="flex items-center gap-6 text-sm text-textMuted">
+            {t.socials.map((s) => (
+              <a key={s} href="#" className="hover:text-text transition-colors">{s}</a>
+            ))}
           </div>
         </div>
       </div>

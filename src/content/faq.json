@@ -1,0 +1,82 @@
+{
+  "pt": {
+    "eyebrow": "Perguntas Frequentes",
+    "titlePrefix": "Antes de ",
+    "titleHighlight": "começar.",
+    "subtitle": "As dúvidas mais comuns de quem está avaliando trabalhar com a Bera.",
+    "items": [
+      {
+        "question": "Como funciona o processo criativo da Bera?",
+        "answer": "Começamos com um diagnóstico de posicionamento e performance, seguido por um mapeamento estratégico da marca. A partir daí, o time criativo e o time de mídia trabalham juntos — não em silos — para que cada peça produzida já nasça pensando em conversão, não só em estética."
+      },
+      {
+        "question": "Quanto tempo leva um projeto?",
+        "answer": "Um sistema de identidade visual completo leva de 4 a 6 semanas. Sites e landing pages, de 3 a 5 semanas. Produção audiovisual varia conforme o escopo. Projetos de performance e tráfego têm entrega contínua, com ciclos de otimização mensais."
+      },
+      {
+        "question": "Como funciona o investimento?",
+        "answer": "Trabalhamos com escopo fechado para projetos pontuais (identidade, site, campanha) e com contrato mensal para performance e produção contínua. O valor é definido após o diagnóstico inicial, quando entendemos a complexidade real do desafio — não cobramos um pacote genérico fechado sem entender o projeto."
+      },
+      {
+        "question": "O que diferencia a Bera de uma agência genérica?",
+        "answer": "A maioria das agências vende estética ou vende tráfego, separadamente. A Bera une as duas coisas em uma execução só: criatividade que carrega estratégia, e performance que se apoia em uma marca bem construída. É por isso que falamos em dominar a percepção — o design gera valor percebido, e a mídia converte esse valor em resultado."
+      },
+      {
+        "question": "Que tipos de projeto vocês atendem?",
+        "answer": "Atuamos principalmente com empresas de setores complexos — indústria, arquitetura, saúde e fitness, B2B técnico — que precisam comunicar com clareza algo que não é simples de explicar. Trabalhamos com identidade visual, audiovisual e motion, web e e-commerce, e performance e tráfego pago."
+      },
+      {
+        "question": "Quem fica com os direitos do material entregue?",
+        "answer": "Todo material entregue e aprovado — arquivos de marca, vídeos, código do site — é propriedade do cliente. Documentamos isso em contrato antes do início de qualquer projeto, sem letras miúdas."
+      },
+      {
+        "question": "Quantas rodadas de revisão estão incluídas?",
+        "answer": "Cada entrega inclui duas rodadas de revisão dentro do escopo definido. Ajustes fora do escopo original são orçados à parte, para manter o cronograma e a qualidade do que já foi acordado."
+      },
+      {
+        "question": "Vocês atendem clientes fora do Brasil?",
+        "answer": "Sim. O site e o time de atendimento operam em português e inglês, e já trabalhamos com clientes internacionais em fuso horário americano."
+      }
+    ]
+  },
+  "en": {
+    "eyebrow": "Frequently Asked Questions",
+    "titlePrefix": "Before we ",
+    "titleHighlight": "start.",
+    "subtitle": "The most common questions from companies evaluating Bera.",
+    "items": [
+      {
+        "question": "How does Bera's creative process work?",
+        "answer": "We start with a positioning and performance diagnosis, followed by a strategic brand mapping session. From there, the creative team and the media team work together — not in silos — so every piece produced is built for conversion, not just aesthetics."
+      },
+      {
+        "question": "How long does a project take?",
+        "answer": "A full brand identity system takes 4 to 6 weeks. Websites and landing pages, 3 to 5 weeks. Video production timelines vary by scope. Performance and paid media work is ongoing, with monthly optimization cycles."
+      },
+      {
+        "question": "How does pricing/investment work?",
+        "answer": "We use fixed scopes for one-off projects (identity, website, campaign) and a monthly retainer for ongoing performance and production work. Pricing is set after the initial diagnosis, once we understand the real complexity of the challenge — we don't quote a generic package before understanding the project."
+      },
+      {
+        "question": "What sets Bera apart from a generic agency?",
+        "answer": "Most agencies sell aesthetics or sell traffic, separately. Bera combines both in one execution: creativity that carries strategy, and performance built on a well-constructed brand. That's what \"owning the perception\" means in practice — design generates perceived value, and media converts that value into results."
+      },
+      {
+        "question": "What kinds of projects do you take on?",
+        "answer": "We mainly work with companies in complex sectors — industry, architecture, health and fitness, technical B2B — that need to communicate something inherently hard to explain, clearly. We cover brand identity, video and motion, web and e-commerce, and performance/paid media."
+      },
+      {
+        "question": "Who owns the rights to the delivered work?",
+        "answer": "All approved deliverables — brand files, videos, website code — belong to the client. This is documented in the contract before any project starts, no fine print."
+      },
+      {
+        "question": "How many rounds of revisions are included?",
+        "answer": "Every deliverable includes two rounds of revisions within the defined scope. Changes outside the original scope are quoted separately, to protect the timeline and the quality of what's already been agreed."
+      },
+      {
+        "question": "Do you work with clients outside Brazil?",
+        "answer": "Yes. The site and our team operate in both Portuguese and English, and we already work with international clients on US time zones."
+      }
+    ]
+  }
+}

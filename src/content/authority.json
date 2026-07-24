@@ -1,0 +1,36 @@
+{
+  "pt": {
+    "eyebrow": "Sete anos de mercado",
+    "titlePrefix": "Construímos marcas fortes para ",
+    "titleHighlight": "setores complexos.",
+    "paragraphs": [
+      "Há 7 anos, a Bera Creative Studio ajuda empresas desses setores a transformar operações complexas em marcas fortes, relevantes e reconhecidas no mercado.",
+      "Mais do que produzir conteúdo, criamos posicionamento para empresas que crescem com consistência e relevância."
+    ],
+    "points": [
+      "Design que converte e gera valor percebido",
+      "Engenharia de funil e mídia paga otimizada",
+      "Estratégia sólida baseada em dados reais"
+    ],
+    "statNumber": "7",
+    "statLabel": "Anos de experiência",
+    "statSubLabel": "Centenas de marcas transformadas"
+  },
+  "en": {
+    "eyebrow": "Seven years in the market",
+    "titlePrefix": "We build strong brands for ",
+    "titleHighlight": "complex industries.",
+    "paragraphs": [
+      "For 7 years, Bera Creative Studio has helped companies in these sectors turn complex operations into strong, relevant, recognized brands.",
+      "More than producing content, we build positioning for companies that grow with consistency and relevance."
+    ],
+    "points": [
+      "Design that converts and builds perceived value",
+      "Funnel engineering and optimized paid media",
+      "Solid strategy grounded in real data"
+    ],
+    "statNumber": "7",
+    "statLabel": "Years of experience",
+    "statSubLabel": "Hundreds of brands transformed"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "nav": {
+    "services": "Services",
+    "cases": "Cases",
+    "method": "Method",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "cta": "Talk to a specialist"
+  },
+  "theme": {
+    "toggle": "Toggle theme"
+  },
+  "lang": {
+    "toggle": "Switch language",
+    "pt": "PT-BR",
+    "en": "EN-US"
+  },
+  "contactForm": {
+    "name": "Name",
+    "namePlaceholder": "Jane Smith",
+    "company": "Company",
+    "companyPlaceholder": "My Company",
+    "email": "Work Email",
+    "emailPlaceholder": "jane@company.com",
+    "phone": "Phone / WhatsApp",
+    "phonePlaceholder": "+1 (555) 123-4567",
+    "interest": "Main Challenge",
+    "interestOptions": {
+      "identity": "Brand Identity",
+      "performance": "Performance & Media",
+      "web": "Web Design / E-commerce",
+      "audiovisual": "Video & Motion",
+      "full": "Full Creative System"
+    },
+    "submit": "Request a Free Diagnosis"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}

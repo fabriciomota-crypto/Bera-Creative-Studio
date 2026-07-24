@@ -1,0 +1,22 @@
+{
+  "pt": {
+    "eyebrow": "Vamos conversar?",
+    "titleLine": "A sua marca precisa",
+    "titleHighlight": "dominar a percepção.",
+    "subtitle": "Deixe seus dados e nosso time de especialistas entrará em contato para agendar um diagnóstico de performance e posicionamento.",
+    "emailLabel": "E-mail",
+    "email": "hello@bera.digital",
+    "availability": "Atendimento ativo (Seg-Sex, 9h-18h)",
+    "socials": ["Instagram", "LinkedIn", "Behance"]
+  },
+  "en": {
+    "eyebrow": "Let's talk?",
+    "titleLine": "Your brand needs to",
+    "titleHighlight": "own the perception.",
+    "subtitle": "Leave your details and our team will reach out to schedule a performance and positioning diagnosis.",
+    "emailLabel": "Email",
+    "email": "hello@bera.digital",
+    "availability": "Live support (Mon-Fri, 9am-6pm)",
+    "socials": ["Instagram", "LinkedIn", "Behance"]
+  }
+}

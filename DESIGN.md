@@ -41,7 +41,7 @@ spacing:
   xl: "96px"
 components:
   button-primary:
-    backgroundColor: "{colors.neutral-black}"
+    backgroundColor: "{colors.primary}"
     textColor: "{colors.neutral-cream}"
     rounded: "{rounded.none}"
     padding: "16px 32px"
@@ -182,9 +182,9 @@ because a "cut circle" reads as broken, not intentional.
 ### Buttons
 - **Shape:** `rounded-none`, or a single clipped corner via `clip-path`
   (angular, on-brand) — never `rounded-full`.
-- **Primary:** Bera Black background / Bera Cream text at rest; **Electric
-  Mint** background / Bera Black text on hover — the accent's one clear
-  "stand out" moment.
+- **Primary:** Solid Blue background / Bera Cream text at rest — the
+  dominant color earns the primary action. **Electric Mint** background /
+  Bera Black text on hover — the accent's one clear "stand out" moment.
 - **Secondary/Ghost:** transparent background, 2px Bera Black/Cream border,
   fills or shifts border color to mint on hover.
 
