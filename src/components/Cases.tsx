@@ -3,10 +3,13 @@ import { Play } from 'lucide-react';
 import casesContent from '../content/cases.json';
 import { useContent } from '../content/useContent';
 
+// Fallback panel colors shown until a real case photo/video still is uploaded
+// via the CMS. Green and dark neutrals only — see the secondary-color fix
+// (blue is not a prominent color on the real site, teal/green is).
 const PANEL_CLASSES: Record<string, string> = {
-  primary: 'bg-primary',
+  primary: 'bg-accent',
   dark: 'bg-surface',
-  accent: 'bg-primaryDeep',
+  accent: 'bg-black',
 };
 
 export const Cases: React.FC = () => {
@@ -22,12 +25,12 @@ export const Cases: React.FC = () => {
             </span>
             <h2 className="text-h2 font-heading text-text">
               {t.titlePrefix}
-              <span className="text-primary dark:text-accent">{t.titleHighlight}</span>
+              <span className="text-accent">{t.titleHighlight}</span>
             </h2>
           </div>
           <a
             href="#"
-            className="text-label uppercase text-text hover:text-primary dark:hover:text-accent transition-colors inline-flex items-center gap-2"
+            className="text-label uppercase text-text hover:text-accent transition-colors inline-flex items-center gap-2"
           >
             {t.viewAll} &rarr;
           </a>
@@ -43,7 +46,7 @@ export const Cases: React.FC = () => {
               {c.image ? (
                 <img src={c.image} alt="" className="absolute inset-0 w-full h-full object-cover" />
               ) : (
-                <div className={`absolute inset-0 ${PANEL_CLASSES[c.panel] ?? 'bg-primary'}`} />
+                <div className={`absolute inset-0 ${PANEL_CLASSES[c.panel] ?? 'bg-accent'}`} />
               )}
 
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 bg-black/20">

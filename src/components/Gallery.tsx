@@ -24,7 +24,7 @@ export const Gallery: React.FC = () => {
                 <img src={slot.image} alt={slot.alt ?? ''} className="w-full h-full object-cover" />
               ) : (
                 <div className="w-full h-full flex items-center justify-center">
-                  <div className="w-10 h-10 bg-primary/20 clip-corner-sm" aria-hidden="true" />
+                  <div className="w-10 h-10 bg-accent/20 clip-corner-sm" aria-hidden="true" />
                 </div>
               )}
             </div>

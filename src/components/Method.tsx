@@ -12,7 +12,7 @@ export const Method: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {t.steps.map((step) => (
-            <div key={step.number} className="border-t-2 border-primary dark:border-accent pt-6">
+            <div key={step.number} className="border-t-2 border-accent pt-6">
               <span className="text-label text-textMuted/60">{step.number}</span>
               <h3 className="text-h3 font-heading text-text mt-2 mb-3">{step.title}</h3>
               <p className="text-textMuted leading-relaxed">{step.description}</p>

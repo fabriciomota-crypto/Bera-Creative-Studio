@@ -19,7 +19,7 @@ export const Contact: React.FC = () => {
   const [sent, setSent] = useState(false);
 
   const fieldClasses =
-    'w-full bg-transparent border-b border-grey/40 py-3 px-1 text-text placeholder:text-textMuted/40 focus:outline-none focus:border-primary dark:focus:border-accent transition-colors';
+    'w-full bg-transparent border-b border-grey/40 py-3 px-1 text-text placeholder:text-textMuted/40 focus:outline-none focus:border-accent transition-colors';
 
   return (
     <section id="contato" className="py-section border-t border-grey/20">
@@ -38,7 +38,7 @@ export const Contact: React.FC = () => {
                 <p className="text-label uppercase text-textMuted/60 mb-1">{t.emailLabel}</p>
                 <a
                   href={`mailto:${t.email}`}
-                  className="text-xl font-heading font-bold text-text hover:text-primary dark:hover:text-accent transition-colors"
+                  className="text-xl font-heading font-bold text-text hover:text-accent transition-colors"
                 >
                   {t.email}
                 </a>
@@ -49,7 +49,7 @@ export const Contact: React.FC = () => {
           <div className="bg-surface/50 p-8 sm:p-10 border border-grey/25">
             {sent ? (
               <div className="flex items-center justify-center h-full min-h-[20rem] text-center">
-                <p className="text-h3 font-heading text-primary dark:text-accent">{t.successMessage}</p>
+                <p className="text-h3 font-heading text-accent">{t.successMessage}</p>
               </div>
             ) : (
               <form
@@ -106,7 +106,7 @@ export const Contact: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="clip-corner w-full py-4 mt-2 bg-primary hover:bg-accent hover:text-black text-white text-label uppercase transition-all hover:-translate-y-0.5"
+                  className="clip-corner w-full py-4 mt-2 bg-accent hover:bg-primary hover:text-white text-black text-label uppercase transition-all hover:-translate-y-0.5"
                 >
                   {form.submit} &rarr;
                 </button>

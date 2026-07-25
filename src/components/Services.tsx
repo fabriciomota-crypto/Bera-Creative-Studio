@@ -22,7 +22,7 @@ export const Services: React.FC = () => {
           </span>
           <h2 className="text-h2 font-heading text-text mb-6">
             {t.titlePrefix}
-            <span className="text-primary dark:text-accent">{t.titleHighlight}</span>
+            <span className="text-accent">{t.titleHighlight}</span>
           </h2>
           <p className="text-bodyText text-textMuted">{t.subtitle}</p>
         </div>
@@ -33,11 +33,11 @@ export const Services: React.FC = () => {
             return (
               <div
                 key={index}
-                className="p-card bg-surface/50 border border-grey/25 hover:border-primary/50 dark:hover:border-accent/50 transition-all hover:-translate-y-1"
+                className="p-card bg-surface/50 border border-grey/25 hover:border-accent/50 transition-all hover:-translate-y-1"
               >
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-label text-textMuted/60">{service.number}</span>
-                  <span className="text-primary dark:text-accent">{ICONS[service.icon]}</span>
+                  <span className="text-accent">{ICONS[service.icon]}</span>
                 </div>
                 <h3 className="text-h3 font-heading text-text mb-3">{service.title}</h3>
                 <p className="text-textMuted leading-relaxed mb-4">{service.description}</p>
@@ -46,7 +46,7 @@ export const Services: React.FC = () => {
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
-                  className="flex items-center gap-1.5 text-label uppercase text-primary dark:text-accent"
+                  className="flex items-center gap-1.5 text-label uppercase text-accent"
                 >
                   {t.moreLabel}
                   <ChevronDown size={14} className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
@@ -55,7 +55,7 @@ export const Services: React.FC = () => {
                 {isOpen && (
                   <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-grey/20">
                     {service.tags.map((tag, j) => (
-                      <span key={j} className="text-label uppercase px-2 py-1 bg-primary/10 text-primary dark:text-accent">
+                      <span key={j} className="text-label uppercase px-2 py-1 bg-accent/10 text-accent">
                         {tag}
                       </span>
                     ))}

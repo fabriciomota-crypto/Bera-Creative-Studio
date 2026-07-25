@@ -18,7 +18,7 @@ export const LanguageSwitcher: React.FC = () => {
         onClick={() => setLang('pt')}
         aria-pressed={!isEn}
         className={`px-2.5 py-1 rounded-full transition-colors ${
-          !isEn ? 'bg-primary text-white' : 'text-textMuted'
+          !isEn ? 'bg-accent text-black' : 'text-textMuted'
         }`}
       >
         {t('lang.pt')}
@@ -28,7 +28,7 @@ export const LanguageSwitcher: React.FC = () => {
         onClick={() => setLang('en')}
         aria-pressed={isEn}
         className={`px-2.5 py-1 rounded-full transition-colors ${
-          isEn ? 'bg-primary text-white' : 'text-textMuted'
+          isEn ? 'bg-accent text-black' : 'text-textMuted'
         }`}
       >
         {t('lang.en')}

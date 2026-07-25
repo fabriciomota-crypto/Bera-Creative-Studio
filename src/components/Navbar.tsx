@@ -18,7 +18,7 @@ export const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className="fixed w-full z-50 bg-bg/85 backdrop-blur-md border-b border-primary/15 transition-colors duration-300">
+    <nav className="fixed w-full z-50 bg-bg/85 backdrop-blur-md border-b border-grey/15 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Logo />
@@ -29,7 +29,7 @@ export const Navbar: React.FC = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-label uppercase text-textMuted hover:text-primary dark:hover:text-accent transition-colors"
+                className="text-label uppercase text-textMuted hover:text-accent transition-colors"
               >
                 {link.label}
               </a>
@@ -38,7 +38,7 @@ export const Navbar: React.FC = () => {
             <ThemeToggle />
             <a
               href="#contato"
-              className="clip-corner-sm px-5 py-2.5 text-label uppercase text-white bg-primary hover:bg-accent hover:text-black transition-all hover:-translate-y-0.5"
+              className="clip-corner-sm px-5 py-2.5 text-label uppercase text-black bg-accent hover:bg-primary hover:text-white transition-all hover:-translate-y-0.5"
             >
               {t('nav.cta')}
             </a>
@@ -62,7 +62,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-bg border-b border-primary/15">
+        <div className="md:hidden bg-bg border-b border-grey/15">
           <div className="px-4 pt-2 pb-6 flex flex-col gap-1">
             {links.map((link) => (
               <a
@@ -77,7 +77,7 @@ export const Navbar: React.FC = () => {
             <a
               href="#contato"
               onClick={() => setIsOpen(false)}
-              className="clip-corner-sm mt-4 text-center px-5 py-3 text-label uppercase text-white bg-primary"
+              className="clip-corner-sm mt-4 text-center px-5 py-3 text-label uppercase text-black bg-accent"
             >
               {t('nav.cta')}
             </a>

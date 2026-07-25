@@ -16,7 +16,7 @@ export const Faq: React.FC = () => {
           </span>
           <h2 className="text-h2 font-heading text-text mb-6">
             {t.titlePrefix}
-            <span className="text-primary dark:text-accent">{t.titleHighlight}</span>
+            <span className="text-accent">{t.titleHighlight}</span>
           </h2>
           <p className="text-bodyText text-textMuted">{t.subtitle}</p>
         </div>
@@ -34,7 +34,7 @@ export const Faq: React.FC = () => {
                   className="w-full flex items-center justify-between gap-6 py-6 text-left"
                 >
                   <span className="text-h3 font-heading text-text">{item.question}</span>
-                  <span className="flex-shrink-0 text-primary dark:text-accent">
+                  <span className="flex-shrink-0 text-accent">
                     {isOpen ? <Minus size={20} /> : <Plus size={20} />}
                   </span>
                 </button>

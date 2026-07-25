@@ -15,7 +15,7 @@ export const Authority: React.FC = () => {
             </span>
             <h2 className="text-h2 font-heading text-text mb-8">
               {t.titlePrefix}
-              <span className="text-primary dark:text-accent">{t.titleHighlight}</span>
+              <span className="text-accent">{t.titleHighlight}</span>
             </h2>
 
             <div className="space-y-6 text-bodyText text-textMuted max-w-[62ch]">
@@ -25,11 +25,18 @@ export const Authority: React.FC = () => {
             </div>
           </div>
 
-          <div className="relative border border-grey/25 bg-bg p-8 sm:p-10">
+          <div>
+            <div className="border border-grey/25 bg-black overflow-hidden mb-6">
+              <img
+                src="/images/container-bera-01.png"
+                alt="Container verde da Bera Creative Studio com identidade visual aplicada"
+                className="w-full h-auto"
+              />
+            </div>
             <div className="space-y-6">
               {t.highlight.map((line, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <span className="mt-2 w-2 h-2 bg-primary dark:bg-accent flex-shrink-0" />
+                  <span className="mt-2 w-2 h-2 bg-accent flex-shrink-0" />
                   <p className="text-lg font-heading font-medium text-text">{line}</p>
                 </div>
               ))}

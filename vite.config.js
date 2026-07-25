@@ -36,41 +36,6 @@ function designPanelDevServer() {
         res.statusCode = 405
         res.end('Method not allowed')
       })
-
-      server.middlewares.use('/__design-image', (req, res) => {
-        if (req.method !== 'POST') {
-          res.statusCode = 405
-          res.end('Method not allowed')
-          return
-        }
-        let body = ''
-        req.on('data', (chunk) => { body += chunk })
-        req.on('end', () => {
-          try {
-            const { slot, dataUrl } = JSON.parse(body)
-            const match = /^data:(image\/\w+);base64,(.+)$/.exec(dataUrl)
-            if (!slot || !match) throw new Error('Invalid slot or dataUrl')
-            const ext = match[1].split('/')[1]
-            const uploadsDir = path.resolve(process.cwd(), 'src/assets/uploads')
-            fs.mkdirSync(uploadsDir, { recursive: true })
-            const filename = `${slot}.${ext}`
-            fs.writeFileSync(path.join(uploadsDir, filename), Buffer.from(match[2], 'base64'))
-
-            const manifestPath = path.resolve(process.cwd(), 'src/design/images.json')
-            const manifest = fs.existsSync(manifestPath)
-              ? JSON.parse(fs.readFileSync(manifestPath, 'utf-8'))
-              : {}
-            manifest[slot] = `/src/assets/uploads/${filename}`
-            fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
-
-            res.statusCode = 200
-            res.end(JSON.stringify({ path: manifest[slot] }))
-          } catch (err) {
-            res.statusCode = 400
-            res.end(String(err))
-          }
-        })
-      })
     },
   }
 }

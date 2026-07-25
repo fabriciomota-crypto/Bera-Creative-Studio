@@ -39,7 +39,7 @@ const CountUp: React.FC<{ target: number; prefix: string; suffix: string }> = ({
     <span ref={ref} className="text-h1 font-heading text-text">
       {prefix}
       {value}
-      <span className="text-primary dark:text-accent">{suffix}</span>
+      <span className="text-accent">{suffix}</span>
     </span>
   );
 };
@@ -51,7 +51,7 @@ export const Stats: React.FC = () => {
     <section className="py-section border-t border-grey/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-h2 font-heading text-text mb-16 text-center">
-          {t.titleLine} <span className="text-primary dark:text-accent">{t.titleHighlight}</span>
+          {t.titleLine} <span className="text-accent">{t.titleHighlight}</span>
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
           {t.items.map((item, i) => (

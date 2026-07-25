@@ -1,10 +1,9 @@
-<!-- SEED: established from Base/Brand Guidelines BERA FIGMA.pdf ahead of implementation, since the current code's tokens (generic teal accent, no blue, Inter font, blob gradients) contradict the official guideline. Re-run /impeccable document once the rebuild lands to capture the actual implemented tokens/components. -->
+<!-- UPDATED after auditing the real bera.digital source (fabriciomota-crypto/bera-site): its CSS uses var(--teal) (#47B86D, our `accent` token) 30 times and var(--blue) (#303E98, our `primary` token) ZERO times. The brand-guideline PDF names blue as the "60% dominant" color, but the client's own shipped site never applies it — green/teal is the real recurring color (buttons, highlighted headline words, icons, borders). Token *names* (primary/accent) are unchanged in code to avoid a churny rename, but their visual *roles* are now flipped: accent (green) is the default/dominant color everywhere; primary (blue) survives only as a rare hover-flourish on CTA buttons. -->
 ---
 name: Bera Creative Studio
 description: Geometric-technical bold minimalism for a creative-and-performance studio that "owns the perception."
 colors:
   primary: "#303E98"
-  primary-deep: "#232d70"
   accent: "#47B86D"
   neutral-grey: "#CECECE"
   neutral-black: "#080810"
@@ -41,13 +40,13 @@ spacing:
   xl: "96px"
 components:
   button-primary:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.neutral-cream}"
+    backgroundColor: "{colors.accent}"
+    textColor: "{colors.neutral-black}"
     rounded: "{rounded.none}"
     padding: "16px 32px"
   button-primary-hover:
-    backgroundColor: "{colors.accent}"
-    textColor: "{colors.neutral-black}"
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.neutral-cream}"
   button-secondary:
     backgroundColor: "transparent"
     textColor: "{colors.neutral-black}"
@@ -65,12 +64,12 @@ Bera's visual system is built from the same geometry as its bear mark:
 confident, angular, precise. Nothing is soft by default — corners are cut,
 not rounded; color blocks meet at hard edges, not gradients; depth comes
 from flat panels overlapping, not blur or shadow. The dominant color is
-Solid Blue, not white space dressed up as "minimalism" — blue carries
-structure and weight across roughly 60% of any given screen, mint appears
-only where something genuinely needs to stand out (25%), and grey/black/
-cream neutrals do the quiet work of contrast and legibility (15%). The
-website channel specifically calls for "Modern & Direct": strategic
-whitespace and clarity, not maximalism.
+Electric Mint (green) — confirmed against the real bera.digital source,
+not just the brand-guideline PDF — carrying structure and weight across
+most of any given screen; Solid Blue survives only as a rare hover-flourish
+on primary buttons, and grey/black/cream neutrals do the quiet work of
+contrast and legibility. The website channel specifically calls for
+"Modern & Direct": strategic whitespace and clarity, not maximalism.
 
 This system explicitly rejects generic AI-generated-template visual
 language: no blurred gradient blobs, no glassmorphism, no fake-3D icons, no
@@ -78,27 +77,32 @@ stock photography, no floating 3D orbs.
 
 **Key Characteristics:**
 - Angular, cut-corner geometry over rounded pills
-- Solid Blue as the dominant structural color, not an afterthought
+- Electric Mint (green) as the dominant, always-visible color; Solid Blue
+  reserved for a single rare hover moment, never a default fill
 - Flat, layered depth — never blur/glow
 - Generous, deliberate white space; content never feels crowded
-- The bear's geometry echoed in dividers, section markers, and background
-  panels (abstractly, not as literal logo repetition)
+- The real bear mark (see Components → Logo) in the nav/footer; its
+  angularity echoed abstractly elsewhere (dividers, panel cuts)
 
 ## Colors
 
-The palette is a strict 60/25/15 system, not a free palette — every new
-surface should be checked against this ratio.
+The brand-guideline PDF states a 60/25/15 blue/mint/neutral ratio, but the
+real bera.digital source code contradicts it — `grep`-ing its CSS shows
+`var(--teal)` (green) used 30 times and `var(--blue)` used **zero** times.
+This file follows the real, shipped site: green is the dominant recurring
+color, blue is a rare accent.
 
-### Primary
-- **Solid Blue** (`#303E98`): the dominant color (60%). Used for primary
-  backgrounds, nav structure, key headline emphasis words, primary section
-  dividers, and the dominant panel color in layered background compositions.
+### Primary (dominant, always visible)
+- **Electric Mint** (`#47B86D`, token name `accent` in code): headline
+  emphasis words, primary CTA button backgrounds, active nav/language-switch
+  states, icons, tags/labels, borders on hover, small divider dots.
 
-### Secondary
-- **Electric Mint** (`#47B86D`): the accent (25%). Reserved for things that
-  must visibly stand out: the primary CTA button's hover state, active
-  nav/tab states, tags/labels, small icon accents, the language-switcher
-  active state. Never used as a large background fill.
+### Rare accent (hover-only flourish)
+- **Solid Blue** (`#303E98`, token name `primary` in code): appears *only*
+  as the hover state of primary CTA buttons (green → blue on hover, text
+  flips light). Never a resting/default fill, never a large background —
+  this is deliberate: it keeps the guideline's blue in the system as a
+  brand-true detail without contradicting the real site's actual usage.
 
 ### Neutral
 - **Bera Grey** (`#CECECE`): light-mode borders, dividers, muted surfaces.
@@ -109,22 +113,27 @@ surface should be checked against this ratio.
   white — it's warmer and softer against Bera Black).
 
 ### Named Rules
-**The 60/25/15 Rule.** Any full-viewport section should read as roughly
-60% blue structure, 25% mint accents, 15% grey/black/cream neutral detail.
-If a section is >50% white/neutral space with a green accent doing all the
-work (the old implementation's mistake), it's off-brand — blue is missing
-its job.
+**The Green-Is-Default Rule.** Any color that needs to be visible at rest
+— a button, a highlighted word, an active state — is green. Blue only ever
+appears transiently (a hover), never as a resting state or a large fill.
+If blue is doing visible work at rest anywhere, it's off-brand.
 
 ## Typography
 
-**Display/Body Font:** Parabolica (all weights: Hairline, Light, Regular,
-Medium, Bold, Black). **Font files are not yet supplied** — the
-implementation self-hosts Archivo as a structural stand-in, mapped to the
-same weight names, swappable in one file once real Parabolica files exist.
+**Display/Body Font:** Parabolica (real weight files on the live site:
+Light, Regular, Medium, Bold, Bold Oblique — confirmed via `@font-face` in
+bera-site's source). **Font files themselves are still not in this
+project** — fetching them from bera.digital's own `assets/fonts/` path
+404'd (the production build likely hashes/relocates them), so the
+implementation still self-hosts Archivo as a structural stand-in, mapped to
+the same weight names, swappable in one file once the real `.otf` files are
+supplied.
 
-**Character:** A single geometric-technical grotesk carries the whole
-system — no serif, no script, no secondary "editorial" pairing. The
-weight range itself creates hierarchy.
+**Character:** A single geometric-technical grotesk carries most of the
+system. Note for later: the real site also pairs a serif italic
+("TheSerifon", used for single emphasized words like *percepção*) — not yet
+implemented here since we don't have those font files either. Worth adding
+once both font families are supplied.
 
 ### Hierarchy
 - **Display** (Black/900, `clamp(2.75rem, 6vw, 5rem)`, line-height 1.05):
@@ -179,14 +188,21 @@ because a "cut circle" reads as broken, not intentional.
 
 ## Components
 
+### Logo
+The real bear-mark + wordmark + trailing dot, extracted as an inline SVG
+from bera.digital's own source (`src/assets/brand/bera-logo.svg`, used live
+in `src/components/Logo.tsx`). Renders in `currentColor` so it adapts to
+light/dark theme automatically. This replaced an earlier text-only
+placeholder — no more placeholder needed.
+
 ### Buttons
 - **Shape:** `rounded-none`, or a single clipped corner via `clip-path`
   (angular, on-brand) — never `rounded-full`.
-- **Primary:** Solid Blue background / Bera Cream text at rest — the
-  dominant color earns the primary action. **Electric Mint** background /
-  Bera Black text on hover — the accent's one clear "stand out" moment.
-- **Secondary/Ghost:** transparent background, 2px Bera Black/Cream border,
-  fills or shifts border color to mint on hover.
+- **Primary:** **Electric Mint** background / near-black text at rest — the
+  dominant color earns the primary action. **Solid Blue** background /
+  light text on hover — the one rare, deliberate blue moment in the system.
+- **Secondary/Ghost:** transparent background, 2px border, fills or shifts
+  border color to mint on hover.
 
 ### Cards / Containers
 - **Corner Style:** `rounded-none` or a single clipped corner.
@@ -207,12 +223,15 @@ binary toggle control, not a content container.
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep Solid Blue as the dominant structural color (60%) in every
-  full section — it must be visibly present, not just in a logo dot.
+- **Do** keep Electric Mint as the dominant, always-visible color in every
+  section — it must be visibly present at rest, not just on hover.
 - **Do** use angular/cut corners as the default shape language.
 - **Do** use generous white space and a clear H1/H2/H3/body hierarchy.
-- **Do** keep the bear's geometric language present abstractly (angular
-  divider shapes, panel cuts) even without the final logo file.
+- **Do** use the real bear logo mark (`src/assets/brand/bera-logo.svg`) —
+  no more placeholder needed.
+- **Do** use the real photo/video assets pulled from bera.digital's own
+  source where they exist (hero video, team photos, the green-container
+  authority image) instead of abstract placeholders.
 - **Do** write direct, clarity-first website copy ("Modern & Direct") —
   save punchier/faster phrasing for Instagram-only content, not this site.
 
@@ -221,9 +240,16 @@ binary toggle control, not a content container.
   implementation's `blur-3xl`/`blur-2xl` circles) — flat layering only.
 - **Don't** use fake-3D icons, glassmorphism panels, or floating 3D orbs.
 - **Don't** use generic stock photography or fabricated client
-  testimonials/logos — use real assets only, placeholders stay abstract.
+  testimonials/logos — real assets exist for hero/team/authority now;
+  anything still missing (case study photos, gallery images) stays an
+  abstract placeholder until Bera uploads the real thing via the CMS.
 - **Don't** default to `rounded-full` pill buttons/cards as the shape
-  language.
+  language (note: the real site itself *does* use rounded-full pills —
+  this is a deliberate redesign choice, not an oversight; the visual
+  reformulation brief authorizes changing shape language, just not content).
+- **Don't** use Solid Blue as a resting/default fill anywhere — it is a
+  hover-only flourish, confirmed against the real site's near-zero blue
+  usage.
 - **Don't** write robotic AI-marketing copy ("Unlock your potential with
   AI-powered solutions") — copy stays direct and specific to Bera's actual
   service pillars.

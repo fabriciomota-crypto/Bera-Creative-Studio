@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Palette, Type, Ruler, X, Settings2 } from 'lucide-react';
 
 /**
@@ -141,7 +141,6 @@ export const DesignPanel: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [tokens, setTokens] = useState<TokenState | null>(null);
   const [status, setStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
-  const fileInput = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     setTokens(readCurrentTokens());
@@ -168,19 +167,6 @@ export const DesignPanel: React.FC = () => {
       setStatus('error');
     }
     setTimeout(() => setStatus('idle'), 2000);
-  };
-
-  const uploadHeroImage = async (file: File) => {
-    const reader = new FileReader();
-    reader.onload = async () => {
-      await fetch('/__design-image', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ slot: 'heroVisual', dataUrl: reader.result }),
-      });
-      window.location.reload();
-    };
-    reader.readAsDataURL(file);
   };
 
   return (
@@ -284,23 +270,6 @@ export const DesignPanel: React.FC = () => {
                   className="w-full"
                 />
               </label>
-            </section>
-
-            <section>
-              <h3 className="text-xs font-bold uppercase tracking-wider mb-3">Images</h3>
-              <button
-                onClick={() => fileInput.current?.click()}
-                className="w-full border border-black/20 py-2 text-xs uppercase tracking-wider hover:bg-black hover:text-white transition-colors"
-              >
-                Replace hero visual
-              </button>
-              <input
-                ref={fileInput}
-                type="file"
-                accept="image/*"
-                className="hidden"
-                onChange={(e) => e.target.files?.[0] && uploadHeroImage(e.target.files[0])}
-              />
             </section>
 
             <button

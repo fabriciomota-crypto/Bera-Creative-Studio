@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
                 <ul className="space-y-2">
                   {col.links.map((link) => (
                     <li key={link}>
-                      <a href="#" className="text-text hover:text-primary dark:hover:text-accent transition-colors">
+                      <a href="#" className="text-text hover:text-accent transition-colors">
                         {link}
                       </a>
                     </li>

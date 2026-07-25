@@ -47,27 +47,40 @@ Static Vite + React 19 + TypeScript + Tailwind SPA, no application backend.
 Content persistence is git-based (CMS writes commits; Netlify rebuilds on
 push) — content changes are not instant/dynamic, they require a rebuild.
 Every visible string must exist in both PT and EN; no hardcoded
-untranslated copy. Hosting target: Netlify (not yet created as of this
-writing). GitHub repo exists but its remote URL was not provided to this
-session — git remains local-only until connected.
+untranslated copy. Hosting: **Netlify, connected to
+github.com/fabriciomota-crypto/Bera-Creative-Studio (branch `main`)** —
+repo is live, Identity/Git Gateway invite sent to the team.
 
 ## Brand Commitments
 
 - Name: **Bera** / **Bera Creative Studio**. Tagline/pillar: **"Domine a
   percepção"** (Own the perception).
-- Symbol: an angular, geometric bear-head mark (strength, confidence,
-  precision). **No official vector/PNG export of the logo exists in the
-  project folder** — only a PDF brand guideline. Until Bera supplies real
-  logo files, the site uses a styled text wordmark as an explicitly
-  temporary placeholder (isolated in one `<Logo />` component).
-- Typeface: **Parabolica** (weights Hairline, Light, Regular, Medium, Bold,
-  Black). **No font files exist in the project folder.** Until supplied,
-  the site self-hosts **Archivo** (open license) as a structural
-  placeholder mapped 1:1 onto the same weight names.
-- Palette (from `Base/Brand Guidelines BERA FIGMA.pdf`): Solid Blue
-  `#303E98` (primary, 60% usage), Electric Mint `#47B86D` (accent, 25%),
-  Grey `#CECECE` + black/cream neutrals (15%). See `DESIGN.md` for the full
-  token system.
+- Symbol: an angular, geometric bear-head mark. **Real vector logo now
+  integrated** — extracted as an inline SVG directly from bera.digital's own
+  source (`fabriciomota-crypto/bera-site`) and saved at
+  `src/assets/brand/bera-logo.svg`, used live in `src/components/Logo.tsx`.
+  No placeholder needed anymore.
+- Real photo/video assets pulled from the same source repo and in active
+  use: hero background video (`public/videos/hero.m4v`), team photos for
+  Fabricio Mota and Thiago Có (`public/images/team/`), the green-container
+  brand photo used in the Authority section
+  (`public/images/container-bera-01.png`), and the real favicon
+  (`public/favicon.png`).
+- Typeface: **Parabolica** (real weights confirmed from bera-site's source:
+  Light, Regular, Medium, Bold, Bold Oblique) paired with a serif italic
+  called **"TheSerifon"** for single emphasized words. **Neither font's
+  files are in this project** — bera.digital's own `assets/fonts/` path
+  404s (likely relocated/hashed in its production build), so getting the
+  real files requires Bera to supply them directly. Until then, the site
+  self-hosts **Archivo** (open license) as a structural placeholder mapped
+  1:1 onto the same weight names; the serif-italic pairing isn't
+  implemented at all yet.
+- Palette: **corrected against the real bera.digital source**, which
+  contradicts the brand-guideline PDF's stated 60% blue / 25% mint ratio —
+  its CSS uses `var(--teal)` (green, `#47B86D`) 30 times and `var(--blue)`
+  (`#303E98`) zero times. Green is now the dominant, always-visible color;
+  blue survives only as a rare hover-flourish. See `DESIGN.md` for the full
+  token system and the reasoning.
 - Voice: per the guideline's channel table, the website tone is **"Moderno
   & Direto"** — strategic whitespace, clarity over ornamentation, no
   excess. Contrast with Instagram's punchier/faster tone — that's out of
@@ -77,13 +90,20 @@ session — git remains local-only until connected.
 
 ## Evidence on Hand
 
-- `Base/Brand Guidelines BERA FIGMA.pdf` — full brand system (logo
-  rationale, save-area rule, typography, color ratios, tone-of-voice table).
-- Three named case studies already present in the original scaffold
-  (Lumna Fitness, MMS Arquitetura, EquipproVix) — treated as real client
-  names, not fabricated; no real photos/logos for them exist yet, so
-  visuals stay abstract/geometric placeholders until real assets are
-  uploaded via the CMS.
+- `Base/Brand Guidelines BERA FIGMA.pdf` — brand rationale, save-area rule,
+  typography, tone-of-voice table. Its stated color ratio is superseded by
+  direct evidence from the real site (see Palette above).
+- **The live site itself, bera.digital** — all real section copy (hero,
+  stats, services, cases, about/manifesto, method, team, contact, footer)
+  was pulled directly from its rendered HTML and is now the site's actual
+  content, replacing an earlier round of invented placeholder copy.
+- **`fabriciomota-crypto/bera-site`** (a snapshot of the live site's own
+  source) — real logo SVG, hero video, team photos, the container-brand
+  photo, favicon, and the real CSS confirming actual color usage. No font
+  files or client-logo assets were in that snapshot.
+- Three real case studies: Innovare, Zagross Itália, Guidoni, with real
+  metrics (+2.5M views, +40% conversão) — pulled from the live site, not
+  fabricated.
 - No testimonials, press, or additional case data exist — future work must
   not invent any.
 
