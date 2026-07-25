@@ -8,8 +8,11 @@ export const Hero: React.FC = () => {
 
   return (
     <section className="relative overflow-hidden">
-      {/* Real hero background video (from the live site), dimmed for text legibility */}
-      <div className="absolute inset-0 -z-10">
+      {/* Real hero background video (from the live site), dimmed for text legibility.
+          z-0 (not a negative z-index) — a negative value here would push the
+          video behind the page's own opaque body background instead of just
+          behind the text, making it invisible despite decoding/playing fine. */}
+      <div className="absolute inset-0 z-0">
         <video
           autoPlay
           muted
@@ -23,7 +26,7 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-black/60" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 lg:pt-44 lg:pb-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 lg:pt-44 lg:pb-24">
         <div className="max-w-3xl animate-fade-up">
           <div className="inline-flex items-center gap-2 px-3 py-1 border border-white/25 mb-8">
             <span className="w-2 h-2 bg-accent" />
