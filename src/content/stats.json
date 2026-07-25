@@ -1,0 +1,20 @@
+{
+  "pt": {
+    "titleLine": "Sete anos.",
+    "titleHighlight": "Centenas de marcas.",
+    "items": [
+      { "value": 350, "prefix": "+", "suffix": "proj.", "label": "Projetos entregues" },
+      { "value": 98, "prefix": "", "suffix": "%", "label": "Clientes satisfeitos" },
+      { "value": 7, "prefix": "+", "suffix": "anos", "label": "De mercado criativo" }
+    ]
+  },
+  "en": {
+    "titleLine": "Seven years.",
+    "titleHighlight": "Hundreds of brands.",
+    "items": [
+      { "value": 350, "prefix": "+", "suffix": "proj.", "label": "Projects delivered" },
+      { "value": 98, "prefix": "", "suffix": "%", "label": "Satisfied clients" },
+      { "value": 7, "prefix": "+", "suffix": "yrs", "label": "In the creative market" }
+    ]
+  }
+}

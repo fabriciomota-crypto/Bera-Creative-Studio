@@ -1,18 +1,24 @@
 {
   "pt": {
-    "eyebrow": "Sistemas Criativos Integrados",
-    "titleLine": "Marcas fortes para",
-    "titleHighlight": "setores complexos.",
-    "subtitle": "Unimos estratégia, audiovisual, branding e performance numa execução contínua para que sua marca domine a percepção do mercado.",
+    "kicker": "Bera Creative Studio · Brazil",
+    "title": "Domine a percepção",
+    "titleMark": "©",
+    "subtitle": "Elevamos marcas ao próximo nível. Sistemas criativos integrados — identidade, motion e digital numa execução precisa e evolutiva.",
     "ctaPrimary": "Iniciar Projeto",
-    "ctaSecondary": "Ver Cases"
+    "ctaPrimaryIcon": "↗",
+    "ctaSecondary": "Ver cases",
+    "ctaSecondaryIcon": "→",
+    "marquee": ["Branding", "Motion Design", "Identidade Visual", "Audiovisual", "Web & Digital", "Estratégia", "Performance", "Conteúdo", "Inovação"]
   },
   "en": {
-    "eyebrow": "Integrated Creative Systems",
-    "titleLine": "Strong brands for",
-    "titleHighlight": "complex industries.",
-    "subtitle": "We combine strategy, video, branding, and performance in one continuous engine so your brand owns the perception of your market.",
+    "kicker": "Bera Creative Studio · Brazil",
+    "title": "Own the perception",
+    "titleMark": "©",
+    "subtitle": "We elevate brands to the next level. Integrated creative systems — identity, motion, and digital in one precise, evolving execution.",
     "ctaPrimary": "Start a Project",
-    "ctaSecondary": "See Our Work"
+    "ctaPrimaryIcon": "↗",
+    "ctaSecondary": "See our work",
+    "ctaSecondaryIcon": "→",
+    "marquee": ["Branding", "Motion Design", "Brand Identity", "Video", "Web & Digital", "Strategy", "Performance", "Content", "Innovation"]
   }
 }

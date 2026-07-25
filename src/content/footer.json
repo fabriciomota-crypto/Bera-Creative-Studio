@@ -1,0 +1,24 @@
+{
+  "pt": {
+    "availability": "Disponível para novos projetos. Resposta em até 24h.",
+    "availabilityBadge": "Disponível agora",
+    "columns": [
+      { "title": "Estúdio", "links": ["Serviços", "Cases", "Sobre", "Carreiras"] },
+      { "title": "Conteúdos", "links": ["Blog", "Podcast", "Newsletter"] },
+      { "title": "Redes", "links": ["Instagram", "LinkedIn", "YouTube", "WhatsApp"] }
+    ],
+    "legal": "Bera Creative Studio · Brazil",
+    "legalLinks": ["Privacidade", "Termos"]
+  },
+  "en": {
+    "availability": "Available for new projects. Response within 24h.",
+    "availabilityBadge": "Available now",
+    "columns": [
+      { "title": "Studio", "links": ["Services", "Cases", "About", "Careers"] },
+      { "title": "Content", "links": ["Blog", "Podcast", "Newsletter"] },
+      { "title": "Social", "links": ["Instagram", "LinkedIn", "YouTube", "WhatsApp"] }
+    ],
+    "legal": "Bera Creative Studio · Brazil",
+    "legalLinks": ["Privacy", "Terms"]
+  }
+}

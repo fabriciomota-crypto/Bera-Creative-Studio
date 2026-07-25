@@ -1,52 +1,68 @@
 {
   "pt": {
-    "eyebrow": "Nosso Portfólio",
-    "titlePrefix": "Projetos que ",
-    "titleHighlight": "transformam.",
-    "viewAll": "Ver todos os cases",
+    "eyebrow": "Cases Selecionados",
+    "titlePrefix": "Marcas que ",
+    "titleHighlight": "escolheram qualidade.",
+    "viewAll": "Ver todos",
+    "watchLabel": "Assistir case",
+    "clientLabel": "Cliente",
     "items": [
       {
-        "title": "Lumna Fitness",
-        "category": "E-commerce & Identidade",
-        "tags": ["Branding", "SEO/GEO", "Performance"],
+        "client": "Innovare",
+        "category": "Audiovisual",
+        "metric": "+2.5M views",
+        "subline": "Produção Audiovisual",
+        "year": "2024",
         "panel": "primary"
       },
       {
-        "title": "MMS Arquitetura",
-        "category": "Posicionamento B2B",
-        "tags": ["Web Design", "Audiovisual"],
+        "client": "Zagross Itália",
+        "category": "Audiovisual",
+        "metric": "+2.5M views",
+        "subline": "Produção Audiovisual",
+        "year": "2024",
         "panel": "dark"
       },
       {
-        "title": "EquipproVix",
-        "category": "Indústria & Vendas",
-        "tags": ["Performance", "CRO"],
+        "client": "Guidoni",
+        "category": "Audiovisual",
+        "metric": "+40% conversão",
+        "subline": "Produção & Motion",
+        "year": "2024",
         "panel": "accent"
       }
     ]
   },
   "en": {
-    "eyebrow": "Our Portfolio",
-    "titlePrefix": "Projects that ",
-    "titleHighlight": "transform.",
-    "viewAll": "See all case studies",
+    "eyebrow": "Selected Cases",
+    "titlePrefix": "Brands that ",
+    "titleHighlight": "chose quality.",
+    "viewAll": "View all",
+    "watchLabel": "Watch case",
+    "clientLabel": "Client",
     "items": [
       {
-        "title": "Lumna Fitness",
-        "category": "E-commerce & Brand Identity",
-        "tags": ["Branding", "SEO/GEO", "Performance"],
+        "client": "Innovare",
+        "category": "Video",
+        "metric": "+2.5M views",
+        "subline": "Video Production",
+        "year": "2024",
         "panel": "primary"
       },
       {
-        "title": "MMS Arquitetura",
-        "category": "B2B Positioning",
-        "tags": ["Web Design", "Video"],
+        "client": "Zagross Itália",
+        "category": "Video",
+        "metric": "+2.5M views",
+        "subline": "Video Production",
+        "year": "2024",
         "panel": "dark"
       },
       {
-        "title": "EquipproVix",
-        "category": "Industry & Sales",
-        "tags": ["Performance", "CRO"],
+        "client": "Guidoni",
+        "category": "Video",
+        "metric": "+40% conversion",
+        "subline": "Production & Motion",
+        "year": "2024",
         "panel": "accent"
       }
     ]

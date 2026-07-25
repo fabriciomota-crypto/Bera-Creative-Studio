@@ -1,11 +1,11 @@
 {
   "nav": {
+    "about": "About",
     "services": "Services",
     "cases": "Cases",
-    "method": "Method",
-    "faq": "FAQ",
+    "team": "Team",
     "contact": "Contact",
-    "cta": "Talk to a specialist"
+    "cta": "Get in Touch"
   },
   "theme": {
     "toggle": "Toggle theme"
@@ -17,24 +17,29 @@
   },
   "contactForm": {
     "name": "Name",
-    "namePlaceholder": "Jane Smith",
-    "company": "Company",
-    "companyPlaceholder": "My Company",
-    "email": "Work Email",
-    "emailPlaceholder": "jane@company.com",
-    "phone": "Phone / WhatsApp",
-    "phonePlaceholder": "+1 (555) 123-4567",
-    "interest": "Main Challenge",
-    "interestOptions": {
+    "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "you@company.com",
+    "projectType": "Project type",
+    "projectTypePlaceholder": "Select the project type",
+    "projectTypeOptions": {
       "identity": "Brand Identity",
-      "performance": "Performance & Media",
-      "web": "Web Design / E-commerce",
-      "audiovisual": "Video & Motion",
-      "full": "Full Creative System"
+      "audiovisual": "Video / Motion",
+      "web": "Web & Digital",
+      "full": "Full Brand System",
+      "other": "Other"
     },
-    "submit": "Request a Free Diagnosis"
-  },
-  "footer": {
-    "rights": "All rights reserved."
+    "budget": "Estimated budget",
+    "budgetPlaceholder": "Select a budget range",
+    "budgetOptions": {
+      "tier1": "Up to R$ 5,000",
+      "tier2": "R$ 5,000 - R$ 15,000",
+      "tier3": "R$ 15,000 - R$ 30,000",
+      "tier4": "Above R$ 30,000",
+      "tier5": "I'd rather talk first"
+    },
+    "message": "Message",
+    "messagePlaceholder": "Tell us a bit about your project",
+    "submit": "Send message"
   }
 }

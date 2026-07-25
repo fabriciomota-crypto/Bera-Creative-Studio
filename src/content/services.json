@@ -1,57 +1,61 @@
 {
   "pt": {
-    "eyebrow": "Sistemas Integrados",
+    "eyebrow": "Serviços",
     "titlePrefix": "O que a Bera ",
     "titleHighlight": "entrega.",
     "subtitle": "Soluções criativas integradas, do conceito à execução — cada projeto construído para durar e performar.",
+    "moreLabel": "Ver mais",
     "items": [
       {
         "icon": "palette",
+        "number": "01",
         "title": "Identidade Visual",
-        "description": "Sistemas visuais completos construídos para serem inconfundíveis: marca, logo, cores, tipografia e aplicações."
+        "description": "Sistemas visuais completos construídos para serem inconfundíveis em qualquer ponto de contato. Marca, logo, cores, tipografia e aplicações.",
+        "tags": ["Branding", "Logo Design", "Brandbook"]
       },
       {
         "icon": "video",
-        "title": "Audiovisual & Motion",
-        "description": "Produção de vídeos, animações e campanhas que engajam e transmitem a essência do seu negócio."
+        "number": "02",
+        "title": "Audiovisual",
+        "description": "Produção de vídeo, motion design e fotografia que transformam sua história em narrativas memoráveis e impactantes para qualquer tela.",
+        "tags": ["Motion Design", "Vídeo", "Fotografia"]
       },
       {
         "icon": "layout",
-        "title": "Digital & Web",
-        "description": "Sites, landing pages e e-commerces com foco em performance, CRO e Core Web Vitals."
-      },
-      {
-        "icon": "chart",
-        "title": "Performance & Tráfego",
-        "description": "Gestão de mídia paga, funil de vendas e otimização contínua baseada em dados para maximizar seu ROAS."
+        "number": "03",
+        "title": "Web & Digital",
+        "description": "Sites e campanhas de alta performance construídos para converter atenção em resultado real. UX, UI e desenvolvimento integrados.",
+        "tags": ["Web Design", "Performance", "Campanhas"]
       }
     ]
   },
   "en": {
-    "eyebrow": "Integrated Systems",
+    "eyebrow": "Services",
     "titlePrefix": "What Bera ",
     "titleHighlight": "delivers.",
     "subtitle": "Integrated creative solutions, from concept to execution — every project built to last and to perform.",
+    "moreLabel": "Learn more",
     "items": [
       {
         "icon": "palette",
+        "number": "01",
         "title": "Brand Identity",
-        "description": "Complete visual systems built to be unmistakable: brand, logo, color, typography, and applications."
+        "description": "Complete visual systems built to be unmistakable at every touchpoint. Brand, logo, color, typography, and applications.",
+        "tags": ["Branding", "Logo Design", "Brand Book"]
       },
       {
         "icon": "video",
-        "title": "Video & Motion",
-        "description": "Video production, animation, and campaigns that engage and carry the essence of your business."
+        "number": "02",
+        "title": "Video",
+        "description": "Video production, motion design, and photography that turn your story into memorable, high-impact narratives for any screen.",
+        "tags": ["Motion Design", "Video", "Photography"]
       },
       {
         "icon": "layout",
-        "title": "Digital & Web",
-        "description": "Sites, landing pages, and e-commerce built for performance, CRO, and Core Web Vitals."
-      },
-      {
-        "icon": "chart",
-        "title": "Performance & Media",
-        "description": "Paid media management, sales funnels, and continuous data-driven optimization to maximize your ROAS."
+        "number": "03",
+        "title": "Web & Digital",
+        "description": "High-performance sites and campaigns built to convert attention into real results. Integrated UX, UI, and development.",
+        "tags": ["Web Design", "Performance", "Campaigns"]
       }
     ]
   }

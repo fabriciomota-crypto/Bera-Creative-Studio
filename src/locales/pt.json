@@ -1,11 +1,11 @@
 {
   "nav": {
+    "about": "Sobre",
     "services": "Serviços",
     "cases": "Cases",
-    "method": "Método",
-    "faq": "FAQ",
+    "team": "Equipe",
     "contact": "Contato",
-    "cta": "Falar com especialista"
+    "cta": "Fale Conosco"
   },
   "theme": {
     "toggle": "Alternar tema"
@@ -17,24 +17,29 @@
   },
   "contactForm": {
     "name": "Nome",
-    "namePlaceholder": "João Silva",
-    "company": "Empresa",
-    "companyPlaceholder": "Minha Empresa",
-    "email": "E-mail Corporativo",
-    "emailPlaceholder": "joao@empresa.com",
-    "phone": "WhatsApp",
-    "phonePlaceholder": "(11) 99999-9999",
-    "interest": "Desafio Principal",
-    "interestOptions": {
+    "namePlaceholder": "Seu nome",
+    "email": "Email",
+    "emailPlaceholder": "voce@empresa.com",
+    "projectType": "Tipo de projeto",
+    "projectTypePlaceholder": "Selecione o tipo de projeto",
+    "projectTypeOptions": {
       "identity": "Identidade Visual",
-      "performance": "Performance e Tráfego",
-      "web": "Web Design / E-commerce",
-      "audiovisual": "Audiovisual e Motion",
-      "full": "Sistema Criativo Completo"
+      "audiovisual": "Audiovisual / Motion",
+      "web": "Web & Digital",
+      "full": "Sistema Completo de Marca",
+      "other": "Outro"
     },
-    "submit": "Solicitar Diagnóstico Gratuito"
-  },
-  "footer": {
-    "rights": "Todos os direitos reservados."
+    "budget": "Orçamento estimado",
+    "budgetPlaceholder": "Selecione o orçamento",
+    "budgetOptions": {
+      "tier1": "Até R$ 5.000",
+      "tier2": "R$ 5.000 - R$ 15.000",
+      "tier3": "R$ 15.000 - R$ 30.000",
+      "tier4": "Acima de R$ 30.000",
+      "tier5": "Prefiro conversar antes"
+    },
+    "message": "Mensagem",
+    "messagePlaceholder": "Conte um pouco sobre o seu projeto",
+    "submit": "Enviar mensagem"
   }
 }

@@ -10,10 +10,11 @@ export const Navbar: React.FC = () => {
   const { t } = useTranslation();
 
   const links = [
+    { href: '#sobre', label: t('nav.about') },
     { href: '#servicos', label: t('nav.services') },
     { href: '#cases', label: t('nav.cases') },
-    { href: '#metodo', label: t('nav.method') },
-    { href: '#faq', label: t('nav.faq') },
+    { href: '#equipe', label: t('nav.team') },
+    { href: '#contato', label: t('nav.contact') },
   ];
 
   return (

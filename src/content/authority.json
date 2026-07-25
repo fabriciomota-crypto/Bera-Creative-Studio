@@ -1,36 +1,32 @@
 {
   "pt": {
-    "eyebrow": "Sete anos de mercado",
-    "titlePrefix": "Construímos marcas fortes para ",
+    "eyebrow": "Especialistas em setores complexos",
+    "titlePrefix": "Marcas fortes para ",
     "titleHighlight": "setores complexos.",
     "paragraphs": [
       "Há 7 anos, a Bera Creative Studio ajuda empresas desses setores a transformar operações complexas em marcas fortes, relevantes e reconhecidas no mercado.",
+      "Unimos estratégia, audiovisual, branding e performance para construir autoridade, percepção de valor e presença em um mercado altamente competitivo.",
       "Mais do que produzir conteúdo, criamos posicionamento para empresas que crescem com consistência e relevância."
     ],
-    "points": [
-      "Design que converte e gera valor percebido",
-      "Engenharia de funil e mídia paga otimizada",
-      "Estratégia sólida baseada em dados reais"
-    ],
-    "statNumber": "7",
-    "statLabel": "Anos de experiência",
-    "statSubLabel": "Centenas de marcas transformadas"
+    "highlight": [
+      "Especialistas em logística portuária e comércio exterior",
+      "Estratégia, audiovisual e branding integrados",
+      "Presença construída para empresas que operam em grande escala"
+    ]
   },
   "en": {
-    "eyebrow": "Seven years in the market",
-    "titlePrefix": "We build strong brands for ",
+    "eyebrow": "Specialists in complex industries",
+    "titlePrefix": "Strong brands for ",
     "titleHighlight": "complex industries.",
     "paragraphs": [
       "For 7 years, Bera Creative Studio has helped companies in these sectors turn complex operations into strong, relevant, recognized brands.",
+      "We combine strategy, video, branding, and performance to build authority, perceived value, and presence in a highly competitive market.",
       "More than producing content, we build positioning for companies that grow with consistency and relevance."
     ],
-    "points": [
-      "Design that converts and builds perceived value",
-      "Funnel engineering and optimized paid media",
-      "Solid strategy grounded in real data"
-    ],
-    "statNumber": "7",
-    "statLabel": "Years of experience",
-    "statSubLabel": "Hundreds of brands transformed"
+    "highlight": [
+      "Specialists in port logistics and foreign trade",
+      "Integrated strategy, video, and branding",
+      "Presence built for companies operating at scale"
+    ]
   }
 }

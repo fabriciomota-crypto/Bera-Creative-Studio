@@ -1,0 +1,20 @@
+{
+  "pt": {
+    "title": "Método que gera resultado.",
+    "steps": [
+      { "number": "01", "title": "Imersão", "description": "Mergulhamos fundo no seu negócio e audiência para identificar o posicionamento certo e as oportunidades reais de crescimento." },
+      { "number": "02", "title": "Direção Criativa", "description": "Traduzimos insights em direção criativa — voz, visual e narrativa alinhados ao objetivo estratégico da marca." },
+      { "number": "03", "title": "Execução", "description": "Alta qualidade em identidade, conteúdo, web e motion com precisão e velocidade. Entrega que surpreende." },
+      { "number": "04", "title": "Crescimento", "description": "Sistemas vivos que evoluem com a marca — metrificamos cada resultado e otimizamos continuamente." }
+    ]
+  },
+  "en": {
+    "title": "A method built for results.",
+    "steps": [
+      { "number": "01", "title": "Immersion", "description": "We dive deep into your business and audience to identify the right positioning and the real opportunities for growth." },
+      { "number": "02", "title": "Creative Direction", "description": "We translate insights into creative direction — voice, visuals, and narrative aligned with the brand's strategic goal." },
+      { "number": "03", "title": "Execution", "description": "High quality in identity, content, web, and motion, with precision and speed. Delivery that surprises." },
+      { "number": "04", "title": "Growth", "description": "Living systems that evolve with the brand — we measure every result and continuously optimize." }
+    ]
+  }
+}

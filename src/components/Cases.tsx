@@ -37,29 +37,31 @@ export const Cases: React.FC = () => {
           {t.items.map((c, i) => (
             <div
               key={i}
+              id={i === 0 ? 'case-innovare' : undefined}
               className="group relative clip-corner overflow-hidden border border-grey/25 aspect-[4/5] hover:-translate-y-2 transition-transform duration-300"
             >
-              <div className={`absolute inset-0 ${PANEL_CLASSES[c.panel] ?? 'bg-primary'}`} />
+              {c.image ? (
+                <img src={c.image} alt="" className="absolute inset-0 w-full h-full object-cover" />
+              ) : (
+                <div className={`absolute inset-0 ${PANEL_CLASSES[c.panel] ?? 'bg-primary'}`} />
+              )}
 
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 bg-black/20">
-                <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white" aria-label={t.watchLabel}>
                   <Play className="ml-1" size={24} fill="currentColor" />
                 </div>
               </div>
 
               <div className="absolute inset-0 p-8 flex flex-col justify-end z-20 bg-gradient-to-t from-black/70 via-black/10 to-transparent">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {c.tags.map((tag, j) => (
-                    <span
-                      key={j}
-                      className="text-label uppercase px-2 py-1 bg-accent/90 text-black"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                <span className="text-label uppercase px-2 py-1 bg-accent/90 text-black self-start mb-3">
+                  {c.category}
+                </span>
+                <p className="text-xs uppercase tracking-wider text-gray-300 mb-1">{t.clientLabel}</p>
+                <h3 className="text-xl font-heading font-bold text-white mb-2">{c.client}</h3>
+                <div className="flex items-center gap-3 text-sm text-gray-300">
+                  <span className="font-bold text-white">{c.metric}</span>
+                  <span>{c.subline} · {c.year}</span>
                 </div>
-                <h3 className="text-xl font-heading font-bold text-white mb-1">{c.title}</h3>
-                <p className="text-sm text-gray-300">{c.category}</p>
               </div>
             </div>
           ))}

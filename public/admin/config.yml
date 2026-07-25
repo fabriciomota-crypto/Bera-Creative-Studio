@@ -1,0 +1,346 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Lets Bera's team test content editing locally before any Netlify Identity
+# setup exists — run `npx decap-server` alongside `npm run dev`, then open
+# http://localhost:5173/admin/index.html. See README.md "Content editing
+# (CMS)" for the production setup (Netlify Identity + Git Gateway).
+local_backend: true
+
+media_folder: public/uploads
+public_folder: /uploads
+
+i18n:
+  structure: single_file
+  locales: [pt, en]
+  default_locale: pt
+
+collections:
+  - name: hero
+    label: "Hero Section"
+    label_singular: "Hero"
+    delete: false
+    i18n: true
+    editor:
+      preview: false
+    files:
+      - name: hero
+        label: "Hero"
+        file: src/content/hero.json
+        i18n: true
+        fields:
+          - { name: kicker, label: "Small kicker line", widget: string, i18n: true }
+          - { name: title, label: "Headline", widget: string, i18n: true }
+          - { name: titleMark, label: "Headline mark (e.g. ©)", widget: string, i18n: true }
+          - { name: subtitle, label: "Subtitle", widget: text, i18n: true }
+          - { name: ctaPrimary, label: "Primary button label", widget: string, i18n: true }
+          - { name: ctaPrimaryIcon, label: "Primary button icon/glyph", widget: string, i18n: true }
+          - { name: ctaSecondary, label: "Secondary button label", widget: string, i18n: true }
+          - { name: ctaSecondaryIcon, label: "Secondary button icon/glyph", widget: string, i18n: true }
+          - { name: marquee, label: "Scrolling tag words", widget: list, field: { name: tag, widget: string }, i18n: true }
+
+  - name: stats
+    label: "Stats Section"
+    label_singular: "Stats"
+    delete: false
+    i18n: true
+    editor:
+      preview: false
+    files:
+      - name: stats
+        label: "Stats"
+        file: src/content/stats.json
+        i18n: true
+        fields:
+          - { name: titleLine, label: "Headline (line 1)", widget: string, i18n: true }
+          - { name: titleHighlight, label: "Headline (highlighted line)", widget: string, i18n: true }
+          - name: items
+            label: "Stat"
+            widget: list
+            fields:
+              - { name: value, label: "Target number", widget: number, value_type: int }
+              - { name: prefix, label: "Prefix (e.g. +)", widget: string, required: false }
+              - { name: suffix, label: "Suffix (e.g. %, anos)", widget: string, i18n: true }
+              - { name: label, label: "Label", widget: string, i18n: true }
+
+  - name: authority
+    label: "Authority Section"
+    label_singular: "Authority"
+    delete: false
+    i18n: true
+    editor:
+      preview: false
+    files:
+      - name: authority
+        label: "Authority"
+        file: src/content/authority.json
+        i18n: true
+        fields:
+          - { name: eyebrow, label: "Eyebrow tag", widget: string, i18n: true }
+          - { name: titlePrefix, label: "Headline prefix", widget: string, i18n: true }
+          - { name: titleHighlight, label: "Headline (highlighted)", widget: string, i18n: true }
+          - { name: paragraphs, label: "Paragraph", widget: list, field: { name: text, widget: text }, i18n: true }
+          - { name: highlight, label: "Highlight line", widget: list, field: { name: text, widget: string }, i18n: true }
+
+  - name: intro
+    label: "Intro Line"
+    label_singular: "Intro"
+    delete: false
+    i18n: true
+    editor:
+      preview: false
+    files:
+      - name: intro
+        label: "Intro"
+        file: src/content/intro.json
+        i18n: true
+        fields:
+          - { name: text, label: "Text", widget: text, i18n: true }
+
+  - name: services
+    label: "Services Section"
+    label_singular: "Services"
+    delete: false
+    i18n: true
+    editor:
+      preview: false
+    files:
+      - name: services
+        label: "Services"
+        file: src/content/services.json
+        i18n: true
+        fields:
+          - { name: eyebrow, label: "Eyebrow tag", widget: string, i18n: true }
+          - { name: titlePrefix, label: "Headline prefix", widget: string, i18n: true }
+          - { name: titleHighlight, label: "Headline (highlighted)", widget: string, i18n: true }
+          - { name: subtitle, label: "Subtitle", widget: text, i18n: true }
+          - { name: moreLabel, label: "\"Learn more\" toggle label", widget: string, i18n: true }
+          - name: items
+            label: "Service"
+            widget: list
+            i18n: true
+            fields:
+              - { name: icon, label: "Icon", widget: select, options: [palette, video, layout] }
+              - { name: number, label: "Number (01, 02...)", widget: string }
+              - { name: title, label: "Title", widget: string, i18n: true }
+              - { name: description, label: "Description", widget: text, i18n: true }
+              - { name: tags, label: "Tags", widget: list, field: { name: tag, widget: string }, i18n: true }
+
+  - name: cases
+    label: "Case Studies"
+    label_singular: "Cases"
+    delete: false
+    i18n: true
+    editor:
+      preview: false
+    files:
+      - name: cases
+        label: "Cases"
+        file: src/content/cases.json
+        i18n: true
+        fields:
+          - { name: eyebrow, label: "Eyebrow tag", widget: string, i18n: true }
+          - { name: titlePrefix, label: "Headline prefix", widget: string, i18n: true }
+          - { name: titleHighlight, label: "Headline (highlighted)", widget: string, i18n: true }
+          - { name: viewAll, label: "'View all' link label", widget: string, i18n: true }
+          - { name: watchLabel, label: "'Watch case' label", widget: string, i18n: true }
+          - { name: clientLabel, label: "'Client' label", widget: string, i18n: true }
+          - name: items
+            label: "Case"
+            widget: list
+            i18n: true
+            fields:
+              - { name: client, label: "Client name", widget: string }
+              - { name: category, label: "Category", widget: string, i18n: true }
+              - { name: metric, label: "Headline metric (e.g. +2.5M views)", widget: string }
+              - { name: subline, label: "Subline (e.g. Produção Audiovisual)", widget: string, i18n: true }
+              - { name: year, label: "Year", widget: string }
+              - { name: panel, label: "Panel color (until a real video/photo is uploaded)", widget: select, options: [primary, dark, accent] }
+              - { name: image, label: "Case cover photo (optional — replaces the color panel)", widget: image, required: false }
+
+  - name: about
+    label: "About / Manifesto (Sobre)"
+    label_singular: "About"
+    delete: false
+    i18n: true
+    editor:
+      preview: false
+    files:
+      - name: about
+        label: "About"
+        file: src/content/about.json
+        i18n: true
+        fields:
+          - { name: eyebrow, label: "Eyebrow tag", widget: string, i18n: true }
+          - { name: title, label: "Headline", widget: string, i18n: true }
+          - { name: paragraphs, label: "Paragraph", widget: list, field: { name: text, widget: text }, i18n: true }
+          - { name: cta, label: "Button label", widget: string, i18n: true }
+          - { name: ctaIcon, label: "Button icon/glyph", widget: string, i18n: true }
+
+  - name: method
+    label: "Method Section"
+    label_singular: "Method"
+    delete: false
+    i18n: true
+    editor:
+      preview: false
+    files:
+      - name: method
+        label: "Method"
+        file: src/content/method.json
+        i18n: true
+        fields:
+          - { name: title, label: "Headline", widget: string, i18n: true }
+          - name: steps
+            label: "Step"
+            widget: list
+            i18n: true
+            fields:
+              - { name: number, label: "Number (01, 02...)", widget: string }
+              - { name: title, label: "Title", widget: string, i18n: true }
+              - { name: description, label: "Description", widget: text, i18n: true }
+
+  - name: team
+    label: "Team Section"
+    label_singular: "Team"
+    delete: false
+    i18n: true
+    editor:
+      preview: false
+    files:
+      - name: team
+        label: "Team"
+        file: src/content/team.json
+        i18n: true
+        fields:
+          - { name: eyebrow, label: "Eyebrow tag", widget: string, i18n: true }
+          - { name: title, label: "Headline (line 1)", widget: string, i18n: true }
+          - { name: titleHighlight, label: "Headline (highlighted line)", widget: string, i18n: true }
+          - { name: description, label: "Description", widget: text, i18n: true }
+          - name: members
+            label: "Team Member"
+            widget: list
+            i18n: true
+            fields:
+              - { name: name, label: "Name", widget: string }
+              - { name: role, label: "Role", widget: string, i18n: true }
+
+  - name: tagline
+    label: "Tagline Band"
+    label_singular: "Tagline"
+    delete: false
+    i18n: true
+    editor:
+      preview: false
+    files:
+      - name: tagline
+        label: "Tagline"
+        file: src/content/tagline.json
+        i18n: true
+        fields:
+          - { name: text, label: "Text", widget: text, i18n: true }
+
+  - name: gallery
+    label: "Gallery Section"
+    label_singular: "Gallery"
+    delete: false
+    i18n: true
+    editor:
+      preview: false
+    files:
+      - name: gallery
+        label: "Gallery title"
+        file: src/content/gallery.json
+        i18n: true
+        fields:
+          - { name: title, label: "Headline", widget: string, i18n: true }
+
+  - name: gallery_images
+    label: "Gallery Photos"
+    label_singular: "Photo"
+    delete: true
+    create: true
+    files:
+      - name: gallery_images
+        label: "Gallery Photos"
+        file: src/content/gallery-images.json
+        fields:
+          - name: photos
+            label: "Photos"
+            widget: list
+            fields:
+              - { name: image, label: "Photo", widget: image }
+              - { name: alt, label: "Alt text", widget: string, required: false }
+
+  - name: contact
+    label: "Contact / Closing CTA"
+    label_singular: "Contact"
+    delete: false
+    i18n: true
+    editor:
+      preview: false
+    files:
+      - name: contact
+        label: "Contact"
+        file: src/content/contact.json
+        i18n: true
+        fields:
+          - { name: title, label: "Closing headline", widget: string, i18n: true }
+          - { name: subtitle, label: "Subtitle", widget: text, i18n: true }
+          - { name: addressLabel, label: "Address field label", widget: string, i18n: true }
+          - { name: address, label: "Address", widget: string, i18n: true }
+          - { name: emailLabel, label: "Email field label", widget: string, i18n: true }
+          - { name: email, label: "Contact email", widget: string }
+          - { name: formNote, label: "Form footnote", widget: string, i18n: true }
+          - { name: successMessage, label: "Form success message", widget: string, i18n: true }
+
+  - name: footer
+    label: "Footer"
+    label_singular: "Footer"
+    delete: false
+    i18n: true
+    editor:
+      preview: false
+    files:
+      - name: footer
+        label: "Footer"
+        file: src/content/footer.json
+        i18n: true
+        fields:
+          - { name: availability, label: "Availability line", widget: string, i18n: true }
+          - { name: availabilityBadge, label: "Availability badge label", widget: string, i18n: true }
+          - name: columns
+            label: "Column"
+            widget: list
+            i18n: true
+            fields:
+              - { name: title, label: "Column title", widget: string, i18n: true }
+              - { name: links, label: "Link label", widget: list, field: { name: label, widget: string }, i18n: true }
+          - { name: legal, label: "Legal line (after the © year)", widget: string, i18n: true }
+          - { name: legalLinks, label: "Legal link", widget: list, field: { name: label, widget: string }, i18n: true }
+
+  - name: faq
+    label: "FAQ (added — not on the live site)"
+    label_singular: "FAQ"
+    delete: false
+    i18n: true
+    editor:
+      preview: false
+    files:
+      - name: faq
+        label: "FAQ"
+        file: src/content/faq.json
+        i18n: true
+        fields:
+          - { name: eyebrow, label: "Eyebrow tag", widget: string, i18n: true }
+          - { name: titlePrefix, label: "Headline prefix", widget: string, i18n: true }
+          - { name: titleHighlight, label: "Headline (highlighted)", widget: string, i18n: true }
+          - { name: subtitle, label: "Subtitle", widget: text, i18n: true }
+          - name: items
+            label: "Question"
+            widget: list
+            i18n: true
+            fields:
+              - { name: question, label: "Question", widget: string, i18n: true }
+              - { name: answer, label: "Answer", widget: text, i18n: true }

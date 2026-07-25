@@ -1,0 +1,22 @@
+{
+  "pt": {
+    "eyebrow": "Quem faz acontecer",
+    "title": "Pessoas reais.",
+    "titleHighlight": "Resultado real.",
+    "description": "Por trás de cada entrega existe um time obcecado por qualidade, estratégia e execução. Não terceirizamos — cada projeto é conduzido de ponta a ponta por quem realmente entende da marca.",
+    "members": [
+      { "name": "Fabricio Mota", "role": "Co-Fundador & Diretor de Marketing" },
+      { "name": "Thiago Có", "role": "Co-Fundador & Diretor Comercial" }
+    ]
+  },
+  "en": {
+    "eyebrow": "Who makes it happen",
+    "title": "Real people.",
+    "titleHighlight": "Real results.",
+    "description": "Behind every deliverable is a team obsessed with quality, strategy, and execution. We don't outsource — every project is run end-to-end by people who truly understand the brand.",
+    "members": [
+      { "name": "Fabricio Mota", "role": "Co-Founder & Marketing Director" },
+      { "name": "Thiago Có", "role": "Co-Founder & Commercial Director" }
+    ]
+  }
+}
