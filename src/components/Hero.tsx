@@ -18,7 +18,7 @@ export const Hero: React.FC = () => {
           preload="metadata"
           className="w-full h-full object-cover"
         >
-          <source src="/videos/hero.m4v" type="video/mp4" />
+          <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/60" />
       </div>

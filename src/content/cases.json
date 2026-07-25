@@ -13,7 +13,8 @@
         "metric": "+2.5M views",
         "subline": "Produção Audiovisual",
         "year": "2024",
-        "panel": "primary"
+        "panel": "primary",
+        "youtubeId": "nJL4dQy9QiA"
       },
       {
         "client": "Zagross Itália",
@@ -21,7 +22,8 @@
         "metric": "+2.5M views",
         "subline": "Produção Audiovisual",
         "year": "2024",
-        "panel": "dark"
+        "panel": "dark",
+        "youtubeId": "JSitYXHColY"
       },
       {
         "client": "Guidoni",
@@ -29,7 +31,8 @@
         "metric": "+40% conversão",
         "subline": "Produção & Motion",
         "year": "2024",
-        "panel": "accent"
+        "panel": "accent",
+        "youtubeId": "5apaPhP1FGk"
       }
     ]
   },
@@ -47,7 +50,8 @@
         "metric": "+2.5M views",
         "subline": "Video Production",
         "year": "2024",
-        "panel": "primary"
+        "panel": "primary",
+        "youtubeId": "nJL4dQy9QiA"
       },
       {
         "client": "Zagross Itália",
@@ -55,7 +59,8 @@
         "metric": "+2.5M views",
         "subline": "Video Production",
         "year": "2024",
-        "panel": "dark"
+        "panel": "dark",
+        "youtubeId": "JSitYXHColY"
       },
       {
         "client": "Guidoni",
@@ -63,7 +68,8 @@
         "metric": "+40% conversion",
         "subline": "Production & Motion",
         "year": "2024",
-        "panel": "accent"
+        "panel": "accent",
+        "youtubeId": "5apaPhP1FGk"
       }
     ]
   }

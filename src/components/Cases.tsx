@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Play } from 'lucide-react';
 import casesContent from '../content/cases.json';
 import { useContent } from '../content/useContent';
+import { Lightbox } from './Lightbox';
 
-// Fallback panel colors shown until a real case photo/video still is uploaded
-// via the CMS. Green and dark neutrals only — see the secondary-color fix
-// (blue is not a prominent color on the real site, teal/green is).
+// Fallback panel colors shown only if a case has no YouTube video and no
+// uploaded photo yet. Green and dark neutrals only — see the secondary-color
+// fix (blue is not a prominent color on the real site, teal/green is).
 const PANEL_CLASSES: Record<string, string> = {
   primary: 'bg-accent',
   dark: 'bg-surface',
@@ -14,6 +15,7 @@ const PANEL_CLASSES: Record<string, string> = {
 
 export const Cases: React.FC = () => {
   const t = useContent(casesContent);
+  const [openVideo, setOpenVideo] = useState<string | null>(null);
 
   return (
     <section id="cases" className="py-section border-t border-grey/20">
@@ -37,39 +39,49 @@ export const Cases: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {t.items.map((c, i) => (
-            <div
-              key={i}
-              id={i === 0 ? 'case-innovare' : undefined}
-              className="group relative clip-corner overflow-hidden border border-grey/25 aspect-[4/5] hover:-translate-y-2 transition-transform duration-300"
-            >
-              {c.image ? (
-                <img src={c.image} alt="" className="absolute inset-0 w-full h-full object-cover" />
-              ) : (
-                <div className={`absolute inset-0 ${PANEL_CLASSES[c.panel] ?? 'bg-accent'}`} />
-              )}
+          {t.items.map((c, i) => {
+            const thumbnail = c.image ?? (c.youtubeId ? `https://img.youtube.com/vi/${c.youtubeId}/maxresdefault.jpg` : null);
+            return (
+              <button
+                key={i}
+                type="button"
+                id={i === 0 ? 'case-innovare' : undefined}
+                onClick={() => c.youtubeId && setOpenVideo(c.youtubeId)}
+                aria-label={`${t.watchLabel}: ${c.client}`}
+                className="group relative clip-corner overflow-hidden border border-grey/25 aspect-[4/5] hover:-translate-y-2 transition-transform duration-300 text-left"
+              >
+                {thumbnail ? (
+                  <img src={thumbnail} alt="" className="absolute inset-0 w-full h-full object-cover" />
+                ) : (
+                  <div className={`absolute inset-0 ${PANEL_CLASSES[c.panel] ?? 'bg-accent'}`} />
+                )}
 
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 bg-black/20">
-                <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white" aria-label={t.watchLabel}>
-                  <Play className="ml-1" size={24} fill="currentColor" />
-                </div>
-              </div>
+                {c.youtubeId && (
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 bg-black/20">
+                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                      <Play className="ml-1" size={24} fill="currentColor" />
+                    </div>
+                  </div>
+                )}
 
-              <div className="absolute inset-0 p-8 flex flex-col justify-end z-20 bg-gradient-to-t from-black/70 via-black/10 to-transparent">
-                <span className="text-label uppercase px-2 py-1 bg-accent/90 text-black self-start mb-3">
-                  {c.category}
-                </span>
-                <p className="text-xs uppercase tracking-wider text-gray-300 mb-1">{t.clientLabel}</p>
-                <h3 className="text-xl font-heading font-bold text-white mb-2">{c.client}</h3>
-                <div className="flex items-center gap-3 text-sm text-gray-300">
-                  <span className="font-bold text-white">{c.metric}</span>
-                  <span>{c.subline} · {c.year}</span>
+                <div className="absolute inset-0 p-8 flex flex-col justify-end z-20 bg-gradient-to-t from-black/70 via-black/10 to-transparent">
+                  <span className="text-label uppercase px-2 py-1 bg-accent/90 text-black self-start mb-3">
+                    {c.category}
+                  </span>
+                  <p className="text-xs uppercase tracking-wider text-gray-300 mb-1">{t.clientLabel}</p>
+                  <h3 className="text-xl font-heading font-bold text-white mb-2">{c.client}</h3>
+                  <div className="flex items-center gap-3 text-sm text-gray-300">
+                    <span className="font-bold text-white">{c.metric}</span>
+                    <span>{c.subline} · {c.year}</span>
+                  </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </button>
+            );
+          })}
         </div>
       </div>
+
+      {openVideo && <Lightbox youtubeId={openVideo} onClose={() => setOpenVideo(null)} />}
     </section>
   );
 };

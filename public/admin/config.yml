@@ -156,8 +156,9 @@ collections:
               - { name: metric, label: "Headline metric (e.g. +2.5M views)", widget: string }
               - { name: subline, label: "Subline (e.g. Produção Audiovisual)", widget: string, i18n: true }
               - { name: year, label: "Year", widget: string }
-              - { name: panel, label: "Panel color (until a real video/photo is uploaded)", widget: select, options: [primary, dark, accent] }
-              - { name: image, label: "Case cover photo (optional — replaces the color panel)", widget: image, required: false }
+              - { name: panel, label: "Panel color (until a YouTube video or photo is set)", widget: select, options: [primary, dark, accent] }
+              - { name: youtubeId, label: "YouTube video ID (optional — the part after ?v= or youtu.be/)", widget: string, required: false }
+              - { name: image, label: "Case cover photo (optional — overrides the YouTube thumbnail)", widget: image, required: false }
 
   - name: about
     label: "About / Manifesto (Sobre)"
