@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Decap CMS's admin page is a static file (public/admin/index.html), served
+# as-is — no redirect rule needed for it. No SPA redirect is configured
+# because this site has no client-side router (single page, anchor links
+# only); a catch-all redirect would be unnecessary and would break the
+# normal 404 for unknown paths.
