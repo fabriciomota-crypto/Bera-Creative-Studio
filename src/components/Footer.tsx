@@ -4,6 +4,15 @@ import footerContent from '../content/footer.json';
 import { useContent } from '../content/useContent';
 import { Logo } from './Logo';
 
+// Real, live social URLs — matched by label since footer.json's link labels
+// (Instagram, LinkedIn, YouTube, WhatsApp) are identical in PT and EN.
+const SOCIAL_URLS: Record<string, string> = {
+  Instagram: 'https://www.instagram.com/beracreativestudio/',
+  YouTube: 'https://www.youtube.com/@bera.digital',
+  LinkedIn: 'https://www.linkedin.com/company/beracreativestudio/posts/?feedView=all',
+  WhatsApp: 'https://wa.me/5511968643192',
+};
+
 export const Footer: React.FC = () => {
   const t = useContent(footerContent);
   const { t: tChrome } = useTranslation();
@@ -34,13 +43,21 @@ export const Footer: React.FC = () => {
               <div key={col.title}>
                 <h3 className="text-label uppercase text-textMuted/60 mb-5">{col.title}</h3>
                 <ul className="space-y-3">
-                  {col.links.map((link) => (
-                    <li key={link}>
-                      <a href="#" className="link-underline text-text">
-                        {link}
-                      </a>
-                    </li>
-                  ))}
+                  {col.links.map((link) => {
+                    const url = SOCIAL_URLS[link];
+                    return (
+                      <li key={link}>
+                        <a
+                          href={url ?? '#'}
+                          target={url ? '_blank' : undefined}
+                          rel={url ? 'noreferrer' : undefined}
+                          className="link-underline text-text"
+                        >
+                          {link}
+                        </a>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             ))}

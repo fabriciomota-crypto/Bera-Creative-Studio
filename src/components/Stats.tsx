@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import statsContent from '../content/stats.json';
 import { useContent } from '../content/useContent';
 import { Reveal } from './Reveal';
+import { useParallax } from '../hooks/useParallax';
 
 const CountUp: React.FC<{ target: number; prefix: string; suffix: string }> = ({ target, prefix, suffix }) => {
   const [value, setValue] = useState(0);
@@ -47,9 +48,13 @@ const CountUp: React.FC<{ target: number; prefix: string; suffix: string }> = ({
 
 export const Stats: React.FC = () => {
   const t = useContent(statsContent);
+  // Heading scrolls at normal page speed; the numbers move at a slightly
+  // different rate (a few px) for a subtle sense of depth — same
+  // near-invisible motion register as the rest of the site, no bounce.
+  const { ref: numbersRef, offset } = useParallax<HTMLDivElement>(20);
 
   return (
-    <section className="py-section">
+    <section className="py-section overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <h2 className="text-h3 font-heading text-textMuted mb-16 text-center">
@@ -57,7 +62,11 @@ export const Stats: React.FC = () => {
           </h2>
         </Reveal>
         <Reveal>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
+          <div
+            ref={numbersRef}
+            style={{ transform: `translateY(${offset}px)` }}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center"
+          >
             {t.items.map((item, i) => (
               <div key={i}>
                 <CountUp target={item.value} prefix={item.prefix} suffix={item.suffix} />
