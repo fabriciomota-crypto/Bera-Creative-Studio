@@ -1,16 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 
 /**
  * Video lightbox for case studies — matches the real site's behavior
- * (YouTube embeds opened in a dark modal overlay).
+ * (YouTube embeds opened in a dark modal overlay), with a discreet
+ * fade+scale entrance instead of an instant hard cut.
  */
 export const Lightbox: React.FC<{ youtubeId: string; onClose: () => void }> = ({ youtubeId, onClose }) => {
+  const [visible, setVisible] = useState(false);
+
   useEffect(() => {
+    const raf = requestAnimationFrame(() => setVisible(true));
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
     document.addEventListener('keydown', onKey);
     document.body.style.overflow = 'hidden';
     return () => {
+      cancelAnimationFrame(raf);
       document.removeEventListener('keydown', onKey);
       document.body.style.overflow = '';
     };
@@ -18,7 +23,7 @@ export const Lightbox: React.FC<{ youtubeId: string; onClose: () => void }> = ({
 
   return (
     <div
-      className="fixed inset-0 z-[200] bg-black/95 flex items-center justify-center p-4 sm:p-8"
+      className={`fixed inset-0 z-[200] bg-black/90 flex items-center justify-center p-4 sm:p-8 transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -26,12 +31,12 @@ export const Lightbox: React.FC<{ youtubeId: string; onClose: () => void }> = ({
       <button
         onClick={onClose}
         aria-label="Close"
-        className="absolute top-5 right-5 text-white hover:text-accent transition-colors"
+        className="absolute top-5 right-5 text-white/80 hover:text-white transition-colors"
       >
-        <X size={28} />
+        <X size={24} />
       </button>
       <div
-        className="w-full max-w-4xl aspect-video"
+        className={`w-full max-w-4xl aspect-video transition-all duration-300 ${visible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
         onClick={(e) => e.stopPropagation()}
       >
         <iframe

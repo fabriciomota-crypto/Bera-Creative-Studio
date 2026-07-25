@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { Palette, Video, LayoutTemplate, ChevronDown } from 'lucide-react';
 import servicesContent from '../content/services.json';
 import { useContent } from '../content/useContent';
+import { Reveal } from './Reveal';
 
 const ICONS: Record<string, React.ReactNode> = {
-  palette: <Palette size={22} />,
-  video: <Video size={22} />,
-  layout: <LayoutTemplate size={22} />,
+  palette: <Palette size={20} />,
+  video: <Video size={20} />,
+  layout: <LayoutTemplate size={20} />,
 };
 
 export const Services: React.FC = () => {
@@ -16,7 +17,7 @@ export const Services: React.FC = () => {
   return (
     <section id="servicos" className="py-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-16 max-w-[60ch]">
+        <Reveal className="mb-20 max-w-[60ch]">
           <span className="block text-label uppercase text-accent mb-4">
             {t.eyebrow}
           </span>
@@ -25,18 +26,17 @@ export const Services: React.FC = () => {
             <span className="text-accent">{t.titleHighlight}</span>
           </h2>
           <p className="text-bodyText text-textMuted">{t.subtitle}</p>
-        </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* No card boxes — a plain top-divider list lets typography carry the
+            hierarchy instead of borders/shadows/hover-lift chrome. */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12">
           {t.items.map((service, index) => {
             const isOpen = openIndex === index;
             return (
-              <div
-                key={index}
-                className="p-card bg-surface/50 border border-grey/25 hover:border-accent/50 transition-all hover:-translate-y-1"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-label text-textMuted/60">{service.number}</span>
+              <Reveal key={index} className="border-t-2 border-grey/20 pt-8">
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-5xl font-heading font-light text-textMuted/30">{service.number}</span>
                   <span className="text-accent">{ICONS[service.icon]}</span>
                 </div>
                 <h3 className="text-h3 font-heading text-text mb-3">{service.title}</h3>
@@ -46,7 +46,7 @@ export const Services: React.FC = () => {
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
-                  className="flex items-center gap-1.5 text-label uppercase text-accent"
+                  className="link-underline flex items-center gap-1.5 text-label uppercase text-accent w-fit"
                 >
                   {t.moreLabel}
                   <ChevronDown size={14} className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
@@ -61,7 +61,7 @@ export const Services: React.FC = () => {
                     ))}
                   </div>
                 )}
-              </div>
+              </Reveal>
             );
           })}
         </div>

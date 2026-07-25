@@ -17,11 +17,11 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="pt-16 pb-8 border-t border-grey/20 bg-surface/30">
+    <footer className="pt-24 pb-8 border-t border-grey/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-10 mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-20">
           <div>
-            <Logo className="mb-4" />
+            <Logo className="mb-5" />
             <p className="text-textMuted max-w-[36ch]">{t.availability}</p>
             <div className="inline-flex items-center gap-2 mt-4 text-sm text-textMuted">
               <span className="w-2 h-2 rounded-full bg-accent" />
@@ -29,14 +29,14 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-12">
             {t.columns.map((col) => (
               <div key={col.title}>
-                <h3 className="text-label uppercase text-textMuted/60 mb-4">{col.title}</h3>
-                <ul className="space-y-2">
+                <h3 className="text-label uppercase text-textMuted/60 mb-5">{col.title}</h3>
+                <ul className="space-y-3">
                   {col.links.map((link) => (
                     <li key={link}>
-                      <a href="#" className="text-text hover:text-accent transition-colors">
+                      <a href="#" className="link-underline text-text">
                         {link}
                       </a>
                     </li>

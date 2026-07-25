@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Palette, Type, Ruler, X, Settings2 } from 'lucide-react';
+import { Palette, Type, Ruler, LayoutGrid, X, Settings2 } from 'lucide-react';
+import layoutConfig from '../design/layout.json';
 
 /**
  * Dev-only visual control panel (Step 5). Never ships to production — see
@@ -85,24 +86,24 @@ function buildTokensCss(t: TokenState): string {
   --font-body: '${t.fontBody}', ui-sans-serif, system-ui, sans-serif;
 
   --text-h1-size-px: ${t.h1Size}px;
-  --text-h1-size: clamp(2.75rem, 6vw, ${t.h1Size / 16}rem);
+  --text-h1-size: clamp(3rem, 9vw, ${t.h1Size / 16}rem);
   --text-h1-weight: 900;
-  --text-h1-leading: 1.05;
+  --text-h1-leading: 0.98;
 
   --text-h2-size-px: ${t.h2Size}px;
-  --text-h2-size: clamp(2rem, 4vw, ${t.h2Size / 16}rem);
+  --text-h2-size: clamp(2.25rem, 6vw, ${t.h2Size / 16}rem);
   --text-h2-weight: 700;
-  --text-h2-leading: 1.15;
+  --text-h2-leading: 1.05;
 
   --text-h3-size-px: ${t.h3Size}px;
-  --text-h3-size: clamp(1.25rem, 2vw, ${t.h3Size / 16}rem);
+  --text-h3-size: clamp(1.375rem, 2.2vw, ${t.h3Size / 16}rem);
   --text-h3-weight: 700;
-  --text-h3-leading: 1.3;
+  --text-h3-leading: 1.35;
 
   --text-body-size-px: ${t.bodySize}px;
   --text-body-size: ${t.bodySize / 16}rem;
   --text-body-weight: 400;
-  --text-body-leading: 1.6;
+  --text-body-leading: 1.65;
 
   --text-label-size: 0.75rem;
   --text-label-weight: 700;
@@ -130,9 +131,9 @@ function applyLive(t: TokenState) {
   root.setProperty('--color-grey', hexToRgb(t.colorGrey));
   root.setProperty('--font-heading', `'${t.fontHeading}', ui-sans-serif, system-ui, sans-serif`);
   root.setProperty('--font-body', `'${t.fontBody}', ui-sans-serif, system-ui, sans-serif`);
-  root.setProperty('--text-h1-size', `clamp(2.75rem, 6vw, ${t.h1Size / 16}rem)`);
-  root.setProperty('--text-h2-size', `clamp(2rem, 4vw, ${t.h2Size / 16}rem)`);
-  root.setProperty('--text-h3-size', `clamp(1.25rem, 2vw, ${t.h3Size / 16}rem)`);
+  root.setProperty('--text-h1-size', `clamp(3rem, 9vw, ${t.h1Size / 16}rem)`);
+  root.setProperty('--text-h2-size', `clamp(2.25rem, 6vw, ${t.h2Size / 16}rem)`);
+  root.setProperty('--text-h3-size', `clamp(1.375rem, 2.2vw, ${t.h3Size / 16}rem)`);
   root.setProperty('--text-body-size', `${t.bodySize / 16}rem`);
   root.setProperty('--space-section', `${t.sectionSpace / 16}rem`);
 }
@@ -141,10 +142,21 @@ export const DesignPanel: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [tokens, setTokens] = useState<TokenState | null>(null);
   const [status, setStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
+  const [activeLayout, setActiveLayout] = useState(layoutConfig.active);
 
   useEffect(() => {
     setTokens(readCurrentTokens());
   }, []);
+
+  const switchLayout = async (preset: string) => {
+    await fetch('/__design-layout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ active: preset }),
+    });
+    setActiveLayout(preset);
+    window.location.reload();
+  };
 
   if (!tokens) return null;
 
@@ -193,6 +205,29 @@ export const DesignPanel: React.FC = () => {
           <div className="p-4 space-y-6 text-sm">
             <section>
               <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider mb-3">
+                <LayoutGrid size={14} /> Section Order
+              </h3>
+              <p className="text-black/50 text-xs mb-3">
+                Content is identical either way — this only changes presentation order.
+              </p>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => switchLayout('editorial')}
+                  className={`flex-1 py-2 text-xs uppercase tracking-wider border ${activeLayout === 'editorial' ? 'bg-black text-white border-black' : 'border-black/20 hover:bg-black/5'}`}
+                >
+                  Editorial (cases-first)
+                </button>
+                <button
+                  onClick={() => switchLayout('original')}
+                  className={`flex-1 py-2 text-xs uppercase tracking-wider border ${activeLayout === 'original' ? 'bg-black text-white border-black' : 'border-black/20 hover:bg-black/5'}`}
+                >
+                  Original order
+                </button>
+              </div>
+            </section>
+
+            <section>
+              <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider mb-3">
                 <Palette size={14} /> Colors <span className="font-normal text-black/40">(60/25/15)</span>
               </h3>
               <div className="space-y-2">
@@ -235,10 +270,10 @@ export const DesignPanel: React.FC = () => {
                   />
                 </label>
                 {([
-                  ['H1 size', 'h1Size', 40, 96],
-                  ['H2 size', 'h2Size', 24, 64],
-                  ['H3 size', 'h3Size', 16, 32],
-                  ['Body size', 'bodySize', 14, 20],
+                  ['H1 size', 'h1Size', 40, 160],
+                  ['H2 size', 'h2Size', 24, 96],
+                  ['H3 size', 'h3Size', 16, 36],
+                  ['Body size', 'bodySize', 14, 22],
                 ] as const).map(([label, key, min, max]) => (
                   <label key={key} className="block">
                     {label}: {tokens[key]}px

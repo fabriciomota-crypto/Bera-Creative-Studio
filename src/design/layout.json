@@ -1,0 +1,7 @@
+{
+  "active": "editorial",
+  "presets": {
+    "original": ["stats", "authority", "intro", "services", "cases", "about", "method", "team", "tagline", "gallery", "contact"],
+    "editorial": ["cases", "stats", "authority", "intro", "services", "about", "tagline", "method", "team", "gallery", "contact"]
+  }
+}

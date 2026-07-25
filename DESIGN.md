@@ -1,7 +1,7 @@
 <!-- UPDATED after auditing the real bera.digital source (fabriciomota-crypto/bera-site): its CSS uses var(--teal) (#47B86D, our `accent` token) 30 times and var(--blue) (#303E98, our `primary` token) ZERO times. The brand-guideline PDF names blue as the "60% dominant" color, but the client's own shipped site never applies it — green/teal is the real recurring color (buttons, highlighted headline words, icons, borders). Token *names* (primary/accent) are unchanged in code to avoid a churny rename, but their visual *roles* are now flipped: accent (green) is the default/dominant color everywhere; primary (blue) survives only as a rare hover-flourish on CTA buttons. -->
 ---
 name: Bera Creative Studio
-description: Geometric-technical bold minimalism for a creative-and-performance studio that "owns the perception."
+description: Geometric-technical bold minimalism for a creative-and-performance studio that "owns the perception." Editorial pass: subtraction over decoration — giant type and real photo/video carry the site, motion is a single discreet scroll-reveal, work leads the narrative.
 colors:
   primary: "#303E98"
   accent: "#47B86D"
@@ -138,19 +138,48 @@ once both font families are supplied.
 ### Hierarchy
 - **Display** (Black/900, `clamp(2.75rem, 6vw, 5rem)`, line-height 1.05):
   Hero H1 only.
-- **Headline** (Bold/700, `clamp(2rem, 4vw, 3rem)`, line-height 1.15): H2
+- **Headline** (Bold/700, `clamp(2.25rem, 6vw, 4rem)`, line-height 1.05): H2
   section titles.
-- **Title** (Bold/700, `1.25rem–1.5rem`, line-height 1.25): H3, card
+- **Title** (Bold/700, `1.375rem–1.625rem`, line-height 1.3): H3, card
   titles.
-- **Body** (Regular/400, `1rem–1.125rem`, line-height 1.6, max ~68ch):
+- **Body** (Regular/400, `1.125rem`, line-height 1.65, max ~65ch):
   paragraphs, descriptions.
 - **Label** (Bold/700, `0.75rem`, letter-spacing 0.12em, uppercase):
-  eyebrow tags, nav links, button labels.
+  short nav/tag labels only — **not** for full descriptive phrases (a
+  34-char eyebrow in all-caps is a readability failure, not a style choice;
+  those get a quiet sentence-case treatment instead, see Authority).
 
 ### Named Rules
 **The One-Family Rule.** Every weight in the system comes from the same
 type family (Parabolica → Archivo fallback). Never mix in a second
 typeface for "contrast" — the weight range already provides it.
+
+**The Giant-Type Rule** (editorial pass, Basic Agency/Instrument direction).
+Type does the work that decoration used to: H1 scales up to `7rem`, H2 up
+to `4rem`. Reserve true H1 scale for the Hero only — repeating it
+elsewhere (e.g. Stats numbers) makes nothing feel dominant because
+everything competes; Stats uses H2 scale instead.
+
+## Motion (editorial pass)
+
+**One discreet device, used everywhere, instead of many different ones.**
+`Reveal.tsx` fades+drifts content up by 16px on scroll-into-view
+(IntersectionObserver, generous rootMargin, 2s fail-safe timeout so nothing
+ever stays permanently invisible if JS/observer timing is off). No bounce,
+no big transform, nothing that announces itself.
+
+### Named Rules
+**The No-Loop Rule.** No infinite/attention-holding animation anywhere
+(the Hero's old marquee ticker is gone — same real tag words, presented as
+a quiet static wrapped row instead of a scrolling loop). Hover motion is
+limited to: a color shift, an underline growing in from 0 width
+(`.link-underline`), or a ~1.03–1.04x image scale — never a translateY
+lift on cards/buttons.
+
+**The No-Box Rule.** Cards/service-items/team photos don't get a
+bordered container by default — a `border-t` divider or plain spacing
+separates content instead. Photography and video are the protagonists;
+borders and shadows around them are chrome that competes for attention.
 
 ## Layout
 
@@ -256,3 +285,24 @@ binary toggle control, not a content container.
 - **Don't** copy Human Academy's (or any reference site's) literal layout,
   icons, or text — only abstracted mood (background depth technique, motion
   pacing) may be adapted, translated into this palette.
+- **Don't** add a newsletter signup or client-logo showcase just because
+  Instrument/Basic-DEPT/The Human all have one — Bera's real site has
+  neither, and this is a visual/presentation pass, not license to invent
+  new content or capabilities.
+
+## Section Order (editorial pass, reversible)
+
+Content is identical either way — `src/design/layout.json` controls which
+*order* sections render in, toggle-able from the dev panel ("Section
+Order"). Hero always opens, FAQ/Footer always close.
+
+- **`editorial`** (current default): Cases → Stats → Authority → Intro →
+  Services → About → Tagline → Method → Team → Gallery → Contact. Work
+  leads, services support it — per Instrument/Basic-DEPT's "work before
+  services" convention.
+- **`original`**: Stats → Authority → Intro → Services → Cases → About →
+  Method → Team → Tagline → Gallery → Contact — the order this project
+  shipped with before the editorial pass.
+
+Flip `active` in `src/design/layout.json` (or use the panel) to revert;
+nothing needs to be rebuilt from content.

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import faqContent from '../content/faq.json';
 import { useContent } from '../content/useContent';
+import { Reveal } from './Reveal';
 
 export const Faq: React.FC = () => {
   const t = useContent(faqContent);
@@ -10,7 +11,7 @@ export const Faq: React.FC = () => {
   return (
     <section id="faq" className="py-section bg-surface/50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-16 max-w-[60ch]">
+        <Reveal className="mb-16 max-w-[60ch]">
           <span className="block text-label uppercase text-accent mb-4">
             {t.eyebrow}
           </span>
@@ -19,7 +20,7 @@ export const Faq: React.FC = () => {
             <span className="text-accent">{t.titleHighlight}</span>
           </h2>
           <p className="text-bodyText text-textMuted">{t.subtitle}</p>
-        </div>
+        </Reveal>
 
         <div className="divide-y divide-grey/20 border-y border-grey/20">
           {t.items.map((item, i) => {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import contactContent from '../content/contact.json';
 import { useContent } from '../content/useContent';
+import { Reveal } from './Reveal';
 
 export const Contact: React.FC = () => {
   const t = useContent(contactContent);
@@ -25,7 +26,7 @@ export const Contact: React.FC = () => {
     <section id="contato" className="py-section border-t border-grey/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16">
-          <div>
+          <Reveal>
             <h2 className="text-h2 font-heading text-text mb-6">{t.title}</h2>
             <p className="text-bodyText text-textMuted mb-10 max-w-[58ch]">{t.subtitle}</p>
 
@@ -38,15 +39,15 @@ export const Contact: React.FC = () => {
                 <p className="text-label uppercase text-textMuted/60 mb-1">{t.emailLabel}</p>
                 <a
                   href={`mailto:${t.email}`}
-                  className="text-xl font-heading font-bold text-text hover:text-accent transition-colors"
+                  className="link-underline text-xl font-heading font-bold text-text"
                 >
                   {t.email}
                 </a>
               </div>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="bg-surface/50 p-8 sm:p-10 border border-grey/25">
+          <div className="bg-surface/50 p-8 sm:p-10">
             {sent ? (
               <div className="flex items-center justify-center h-full min-h-[20rem] text-center">
                 <p className="text-h3 font-heading text-accent">{t.successMessage}</p>
@@ -106,7 +107,7 @@ export const Contact: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="clip-corner w-full py-4 mt-2 bg-accent hover:bg-primary hover:text-white text-black text-label uppercase transition-all hover:-translate-y-0.5"
+                  className="clip-corner w-full py-4 mt-2 bg-accent hover:bg-primary hover:text-white text-black text-label uppercase transition-colors"
                 >
                   {form.submit} &rarr;
                 </button>

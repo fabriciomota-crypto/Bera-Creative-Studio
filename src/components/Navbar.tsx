@@ -38,7 +38,7 @@ export const Navbar: React.FC = () => {
             <ThemeToggle />
             <a
               href="#contato"
-              className="clip-corner-sm px-5 py-2.5 text-label uppercase text-black bg-accent hover:bg-primary hover:text-white transition-all hover:-translate-y-0.5"
+              className="clip-corner-sm px-5 py-2.5 text-label uppercase text-black bg-accent hover:bg-primary hover:text-white transition-colors"
             >
               {t('nav.cta')}
             </a>
